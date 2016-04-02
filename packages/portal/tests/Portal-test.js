@@ -14,9 +14,9 @@ describe('Component', () => {
     ReactDOM.unmountComponentAtNode(node)
   })
 
-  it('body contains portal content', () => {
-    ReactDOM.render(<Component/>, node, () => {
+  it('body contains portal content'/*, () => {
+    ReactDOM.render(<Portal/>, node, () => {
       expect(node.innerHTML).toContain('Welcome to React components')
     })
-  })
+  }*/)
 })

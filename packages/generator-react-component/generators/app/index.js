@@ -83,6 +83,9 @@ module.exports = generators.Base.extend({
       this.template('_package.json', 'package.json')
       this.template('_README.md', 'README.md')
     },
+    demo: function () {
+      this.template('demo/src/_index.js', 'demo/src/index.js')
+    },
     component: function () {
       this.template('src/_Component.js', 'src/' + this.componentName + '.js')
     },

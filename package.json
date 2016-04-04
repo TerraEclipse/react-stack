@@ -1,4 +1,7 @@
 {
   "name": "react-stack",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "nwb": "0.9.x"
+  }
 }

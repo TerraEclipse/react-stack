@@ -26,7 +26,6 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "enzyme": "^2.2.0",
-    "nwb": "0.9.x",
     "react": "0.14.x",
     "react-addons-test-utils": "^0.14.8",
     "react-dom": "0.14.x"

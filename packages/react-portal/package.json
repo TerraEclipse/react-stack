@@ -17,23 +17,25 @@
     "test": "nwb test",
     "test:watch": "nwb test --server"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": "0.14.x",
     "react-dom": "0.14.x"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "enzyme": "^2.2.0",
     "nwb": "0.9.x",
     "react": "0.14.x",
+    "react-addons-test-utils": "^0.14.8",
     "react-dom": "0.14.x"
   },
   "standard": {
     "parser": "babel-eslint"
   },
-  "author": "",
+  "author": "Brian Link <cpsubrian@gmail.com>",
   "homepage": "",
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "repository": "",
   "keywords": [
     "react-component"

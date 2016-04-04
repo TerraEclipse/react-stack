@@ -1,6 +1,6 @@
 {
   "name": "@terraeclipse/generator-react-component",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Yeoman generator to create a @terraeclipse react component",
   "dependencies": {
     "lodash": "^4.8.1",

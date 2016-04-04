@@ -1,6 +1,6 @@
 {
   "name": "@terraeclipse/react-icon",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "Icon",
   "main": "lib/Icon.js",
   "jsnext:main": "es6/Icon.js",

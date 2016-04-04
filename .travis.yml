@@ -14,4 +14,4 @@ cache:
 before_script:
   - "export PATH=$PWD/node_modules/.bin:$PATH"
 
-script: cd $PKG_DIR && npm install && npm test
+script: cd $PKG_DIR && npm install && DEBUG=nwb npm test

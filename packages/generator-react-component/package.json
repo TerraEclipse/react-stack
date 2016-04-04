@@ -1,0 +1,24 @@
+{
+  "name": "@terraeclipse/generator-react-component",
+  "version": "1.0.4",
+  "description": "Yeoman generator to create a @terraeclipse react component",
+  "dependencies": {
+    "yeoman-generator": "^0.22.5"
+  },
+  "files": [
+    "generators/app"
+  ],
+  "author": "Brian Link <cpsubrian@gmail.com>",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TerraEclipse/react-stack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TerraEclipse/react-stack/issues"
+  },
+  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/packages/generator-react-component#readme",
+  "keywords": [
+    "yeoman-generator"
+  ]
+}

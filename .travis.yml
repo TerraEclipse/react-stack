@@ -1,0 +1,18 @@
+sudo: false
+
+branches:
+  only:
+    - master
+
+language: node_js
+node_js:
+  - 4
+
+env:
+  - PKG_DIR=packages/react-portal
+
+cache:
+  directories:
+    - $PKG_DIR/node_modules
+
+script: cd $PKG_DIR && npm install && npm test

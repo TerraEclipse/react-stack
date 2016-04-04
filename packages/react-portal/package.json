@@ -34,9 +34,17 @@
     "parser": "babel-eslint"
   },
   "author": "Brian Link <cpsubrian@gmail.com>",
-  "homepage": "",
   "license": "Apache-2.0",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TerraEclipse/react-stack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TerraEclipse/react-stack/issues"
+  },
+  "homepage": {
+    "url": "https://github.com/TerraEclipse/react-stack/tree/master/packages/react-portal#readme"
+  },
   "keywords": [
     "react-component"
   ]

@@ -1,13 +1,5 @@
 sudo: false
 
-branches:
-  only:
-    - master
-
-before_install:
-  - "npm install"
-  - "export PATH=$PWD/node_modules/.bin:$PATH"
-
 language: node_js
 node_js:
   - 4
@@ -15,9 +7,8 @@ node_js:
 env:
   - PKG_DIR=packages/react-portal
 
-cache:
-  directories:
-    - node_modules
-    - $PKG_DIR/node_modules
+before_install:
+  - "npm install"
+  - "export PATH=$PWD/node_modules/.bin:$PATH"
 
 script: cd $PKG_DIR && npm install && npm test

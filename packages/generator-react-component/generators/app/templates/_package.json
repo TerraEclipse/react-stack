@@ -1,0 +1,48 @@
+{
+  "name": "<%= scopedPackageName %>",
+  "version": "1.0.0",
+  "description": "<%= projectName %>",
+  "main": "lib/<%= componentName %>.js",
+  "jsnext:main": "es6/<%= componentName %>.js",
+  "files": [
+    "css",
+    "es6",
+    "lib",
+    "umd"
+  ],
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "nwb build",
+    "clean": "nwb clean",
+    "start": "nwb serve",
+    "test": "nwb test",
+    "test:watch": "nwb test --server"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "0.14.x"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "enzyme": "^2.2.0",
+    "react": "0.14.x",
+    "react-addons-test-utils": "^0.14.8",
+    "react-dom": "0.14.x"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "author": "<%- developerName %>",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TerraEclipse/react-stack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TerraEclipse/react-stack/issues"
+  },
+  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/packages/<%= packageName %>#readme",
+  "keywords": [
+    "react-component"
+  ]
+}

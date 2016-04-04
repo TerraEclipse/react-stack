@@ -11,6 +11,7 @@
     "umd"
   ],
   "scripts": {
+    "prepublish": "npm run build",
     "build": "nwb build",
     "clean": "nwb clean",
     "start": "nwb serve",

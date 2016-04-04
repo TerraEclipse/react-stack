@@ -7,8 +7,11 @@ node_js:
 env:
   - PKG_DIR=packages/react-portal
 
-before_install:
-  - "npm install"
+cache:
+  directories:
+    - node_modules
+
+after_install:
   - "export PATH=$PWD/node_modules/.bin:$PATH"
 
 script: cd $PKG_DIR && npm install && npm test

@@ -11,7 +11,7 @@ cache:
   directories:
     - node_modules
 
-after_install:
+before_script:
   - "export PATH=$PWD/node_modules/.bin:$PATH"
 
 script: cd $PKG_DIR && npm install && npm test

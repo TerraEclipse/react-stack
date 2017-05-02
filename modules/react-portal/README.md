@@ -1,12 +1,10 @@
-React Stack
-===========
+@terraeclipse/react-portal
+==========================
 
 About
 -----
 
-A collection of components and other modules that compose our react stack.
-
-@todo More docs
+Describe component here.
 
 Usage
 -----

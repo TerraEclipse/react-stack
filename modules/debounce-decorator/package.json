@@ -1,0 +1,46 @@
+{
+  "name": "@terraeclipse/debounce-decorator",
+  "version": "1.0.0",
+  "description": "Debounce Decorator",
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "css",
+    "es",
+    "lib",
+    "umd"
+  ],
+  "scripts": {
+    "prepublish": "yarn run build",
+    "bin": "PATH=../../node_modules/.bin:./node_modules/.bin:$PATH",
+    "nwb": "yarn run bin nwb",
+    "build": "yarn run nwb -- build-react-component",
+    "clean": "yarn run nwb -- clean-module && npm clean-demo",
+    "start": "yarn run nwb -- serve-react-demo",
+    "test": "yarn run nwb -- test-react",
+    "test:coverage": "yarn run nwb -- test-react --coverage",
+    "test:watch": "yarn run nwb -- test-react --server"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "15.x",
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {},
+  "author": "Brian Link",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TerraEclipse/react-stack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TerraEclipse/react-stack/issues"
+  },
+  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/packages/debounce-decorator#readme",
+  "keywords": [
+    "react-component"
+  ]
+}

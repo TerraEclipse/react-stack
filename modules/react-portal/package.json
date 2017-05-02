@@ -1,6 +1,6 @@
 {
   "name": "@terraeclipse/react-portal",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Portal",
   "standard": {
     "parser": "babel-eslint"
@@ -26,8 +26,8 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "react": "^15.5.4",
-    "prop-types": "^15.5.8"
+    "prop-types": "^15.5.8",
+    "react": "^15.5.4"
   },
   "devDependencies": {},
   "author": "Brian Link",

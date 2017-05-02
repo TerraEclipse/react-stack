@@ -1,6 +1,6 @@
 {
   "name": "@terraeclipse/debounce-decorator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Debounce Decorator",
   "standard": {
     "parser": "babel-eslint"
@@ -26,8 +26,8 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "react": "15.x",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "react": "15.x"
   },
   "devDependencies": {},
   "author": "Brian Link",

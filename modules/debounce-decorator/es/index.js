@@ -1,2 +1,2 @@
-import _debounce from './debounce';
-export { _debounce as debounce };
+import debounce from './debounce';
+export default debounce;

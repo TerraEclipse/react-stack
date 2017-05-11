@@ -1,6 +1,6 @@
-import _Object$defineProperty from 'babel-runtime/core-js/object/define-property';
-import _typeof from 'babel-runtime/helpers/typeof';
-import _ from 'lodash';
+import _debounce from 'lodash/debounce';
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 /**
  * Debounce decorator. Automatically binds method to instance.
@@ -36,10 +36,10 @@ export default function debounce(delay) {
 
         console.log('get');
 
-        var debouncedMethod = _.debounce(method.bind(this), delay, options);
+        var debouncedMethod = _debounce(method.bind(this), delay, options);
 
         definingProperty = true;
-        _Object$defineProperty(this, name, {
+        Object.defineProperty(this, name, {
           value: debouncedMethod,
           configurable: true,
           writable: true

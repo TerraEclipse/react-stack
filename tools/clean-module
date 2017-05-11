@@ -1,0 +1,42 @@
+#!/usr/bin/env node
+const path = require('path')
+const exec = require('./exec')
+
+function cleanModule (cwd) {
+  // Ceanup error logs.
+  function cleanBuild () {
+    return Promise.resolve().then(() => {
+      exec(`rimraf ${path.join(cwd, 'lib')}`)
+      exec(`rimraf ${path.join(cwd, 'es')}`)
+    })
+  }
+
+  // Ceanup error logs.
+  function cleanErrorLogs () {
+    return Promise.resolve().then(() => {
+      exec(`rimraf ${process.cwd()}/lerna-debug.log`)
+      exec(`rimraf ${process.cwd()}/npm-debug.log`)
+    })
+  }
+
+  // Run all the tasks.
+  Promise.all([
+    cleanBuild(),
+    cleanErrorLogs()
+  ]).then(() => {
+    console.log()
+    console.log('Module cleaned!')
+    console.log()
+  })
+}
+
+// Are we running this directly?
+if (process.argv[0].match(/bin\/node$/) && process.argv[1].match(/clean-module$/)) {
+  if (process.argv[2]) {
+    cleanModule(path.resolve(__dirname, '../modules/', process.argv[2]))
+  } else {
+    cleanModule(process.cwd())
+  }
+}
+
+module.exports = cleanModule

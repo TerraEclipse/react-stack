@@ -16,7 +16,9 @@
   "scripts": {
     "prepublish": "yarn run build",
     "build": "../../tools/build-module",
-    "clean": "../../tools/clean-module"
+    "clean": "../../tools/clean-module",
+    "test": "../../tools/test-module",
+    "coverage": "../../tools/test-module --coverage"
   },
   "dependencies": {
     "font-awesome": "^4.7.0"

@@ -7,7 +7,7 @@ module.exports = function (command, options = {}) {
     stdio: 'inherit',
     env: {
       AC_TOOLS: true,
-      PATH: process.env.PATH + ':' + path.resolve(__dirname, '../node_modules/.bin')
+      PATH: path.resolve(__dirname, '../node_modules/.bin') + ':' + process.env.PATH
     }
   }, {env: process.env}))
 }

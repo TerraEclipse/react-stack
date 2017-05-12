@@ -32,11 +32,7 @@ function cleanModule (cwd) {
 
 // Are we running this directly?
 if (process.argv[0].match(/bin\/node$/) && process.argv[1].match(/clean-module$/)) {
-  if (process.argv[2]) {
-    cleanModule(path.resolve(__dirname, '../modules/', process.argv[2]))
-  } else {
-    cleanModule(process.cwd())
-  }
+  cleanModule(process.cwd())
 }
 
 module.exports = cleanModule

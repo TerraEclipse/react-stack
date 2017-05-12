@@ -37,7 +37,7 @@
       "presets": [
         ["babel-preset-env", {
           "loose": true,
-          "modules": false,
+          "modules": "commonjs",
           "targets": {
             "node": 6
           }

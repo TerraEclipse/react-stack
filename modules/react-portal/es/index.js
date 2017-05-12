@@ -1,2 +1,2 @@
-import _Portal from './Portal';
-export { _Portal as Portal };
+import Portal from './Portal';
+export default Portal;

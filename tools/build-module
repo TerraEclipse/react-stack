@@ -20,6 +20,7 @@ function buildModule (cwd) {
   console.log('  - Building CommonJS modules')
   exec(`rimraf ${cjs}`)
   exec(`babel --quiet --copy-files --ignore ${babelIgnore} --out-dir ${cjs} ${src}`, {
+    cwd: cwd,
     env: {
       NODE_ENV: process.env.NODE_ENV || 'production',
       BABEL_ENV: 'commonjs'
@@ -29,6 +30,7 @@ function buildModule (cwd) {
   console.log('  - Building ES modules')
   exec(`rimraf ${es}`)
   exec(`babel --quiet --copy-files --ignore ${babelIgnore} --out-dir ${es} ${src}`, {
+    cwd: cwd,
     env: {
       NODE_ENV: process.env.NODE_ENV || 'production',
       BABEL_ENV: 'es'

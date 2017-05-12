@@ -15,21 +15,18 @@
   ],
   "scripts": {
     "prepublish": "yarn run build",
-    "bin": "PATH=../../node_modules/.bin:./node_modules/.bin:$PATH",
-    "nwb": "yarn run bin nwb",
-    "build": "yarn run nwb -- build-react-component",
-    "clean": "yarn run nwb -- clean-module && npm clean-demo",
-    "start": "yarn run nwb -- serve-react-demo",
-    "test": "yarn run nwb -- test-react",
-    "test:coverage": "yarn run nwb -- test-react --coverage",
-    "test:watch": "yarn run nwb -- test-react --server"
+    "build": "../../tools/build-module",
+    "clean": "../../tools/clean-module"
   },
   "dependencies": {},
   "peerDependencies": {
     "prop-types": "^15.5.8",
     "react": "^15.5.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "prop-types": "^15.5.10",
+    "react": "^15.5.4"
+  },
   "author": "Brian Link",
   "license": "Apache-2.0",
   "repository": {

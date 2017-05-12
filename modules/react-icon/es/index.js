@@ -1,2 +1,2 @@
-import _Icon from './Icon';
-export { _Icon as Icon };
+import Icon from './Icon';
+export default Icon;

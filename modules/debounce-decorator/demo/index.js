@@ -1,14 +1,13 @@
 import React from 'react'
 import {render} from 'react-dom'
-import debounce from '../../src/debounce'
+import debounce from '../src/debounce'
 
 class Demo extends React.Component {
-
   state = {
     count: 0
   }
 
-  @debounce(1000, {leading: true})
+  @debounce(250, {leading: true})
   handleClick (e) {
     this.setState((state) => {
       state.count++
@@ -21,7 +20,7 @@ class Demo extends React.Component {
       <div>
         <h1>DebounceDecorator</h1>
         <p>
-          The click handler on the button will only fire after 1000ms of no clicks.
+          The click handler on the button will only fire after 250ms of no clicks.
         </p>
         <p>
           Clicked <strong>{this.state.count}</strong> time(s)
@@ -32,4 +31,4 @@ class Demo extends React.Component {
   }
 }
 
-render(<Demo />, document.querySelector('#demo'))
+render(<Demo />, document.querySelector('#root'))

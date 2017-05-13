@@ -15,8 +15,9 @@
     "prepublish": "yarn run build",
     "build": "../../tools/build-module",
     "clean": "../../tools/clean-module",
-    "test": "../../tools/test-module",
-    "coverage": "../../tools/test-module --coverage"
+    "coverage": "../../tools/test-module --coverage",
+    "demo": "../../tools/demo-module",
+    "test": "../../tools/test-module"
   },
   "dependencies": {},
   "peerDependencies": {

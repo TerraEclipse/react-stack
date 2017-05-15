@@ -3,13 +3,15 @@
   "private": true,
   "scripts": {
     "lerna": "lerna",
+    "bootstrap": "lerna bootstrap",
     "exec": "lerna exec --concurrency 1",
     "clean": "lerna run clean",
     "do": "./tools/module-do",
     "nuke": "yarn run clean && lerna clean --yes",
     "reinstall": "yarn run nuke && yarn run exec yarn && yarn run lerna bootstrap",
     "storybook": "BABEL_ENV=commonjs start-storybook -p 3005 -c ./tools/.storybook",
-    "view-coverage": "./tools/view-coverage"
+    "view-coverage": "./tools/view-coverage",
+    "generate-component": "yo @terraeclipse/react-component"
   },
   "devDependencies": {
     "@kadira/storybook": "^2.35.3",

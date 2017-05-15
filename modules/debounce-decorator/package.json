@@ -1,6 +1,9 @@
 {
   "name": "@terraeclipse/debounce-decorator",
   "version": "2.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Debounce Decorator",
   "standard": {
     "parser": "babel-eslint"

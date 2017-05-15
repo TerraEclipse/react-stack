@@ -1,10 +1,10 @@
 {
-  "name": "<%= scopedPackageName %>",
+  "name": "@terraeclipse/ismobile-decorator",
   "version": "1.0.0",
   "publishConfig": {
     "access": "public"
   },
-  "description": "<%= projectName %>",
+  "description": "IsMobile Decorator",
   "standard": {
     "parser": "babel-eslint"
   },
@@ -21,13 +21,20 @@
     "test": "../../tools/test-module",
     "coverage": "../../tools/test-module --coverage"
   },
-  "dependencies": {},
-  "peerDependencies": {
-    "react": "^15.5.4",
-    "prop-types": "15.x"
+  "dependencies": {
+    "ismobilejs": "^0.4.1"
   },
-  "devDependencies": {},
-  "author": "<%- developerName %>",
+  "peerDependencies": {
+    "lodash": "^4.17.4",
+    "prop-types": "15.x",
+    "react": "^15.5.4",
+    "react-display-name": "^0.2.0"
+  },
+  "devDependencies": {
+    "prop-types": "15.x",
+    "react": "^15.5.4"
+  },
+  "author": "Brian Link",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
@@ -36,7 +43,7 @@
   "bugs": {
     "url": "https://github.com/TerraEclipse/react-stack/issues"
   },
-  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/packages/<%= packageName %>#readme",
+  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/packages/ismobile-decorator#readme",
   "keywords": [
     "react-component"
   ]

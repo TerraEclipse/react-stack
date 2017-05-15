@@ -5,8 +5,9 @@
     "lerna": "lerna",
     "exec": "lerna exec --concurrency 1",
     "clean": "lerna run clean",
-    "nuke": "yarn run clean && lerna clean --yes && rm -r node_modules",
     "do": "./tools/module-run",
+    "nuke": "yarn run clean && lerna clean --yes",
+    "reinstall": "yarn run nuke && yarn run exec yarn && yarn run lerna bootstrap",
     "storybook": "BABEL_ENV=commonjs start-storybook -p 3005 -c ./.storybook"
   },
   "devDependencies": {

@@ -1,5 +1,4 @@
 /coverage
-/es6
+/es
 /lib
 /node_modules
-npm-debug.log

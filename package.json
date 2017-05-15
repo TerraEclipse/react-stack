@@ -8,7 +8,7 @@
     "do": "./tools/module-do",
     "nuke": "yarn run clean && lerna clean --yes",
     "reinstall": "yarn run nuke && yarn run exec yarn && yarn run lerna bootstrap",
-    "storybook": "BABEL_ENV=commonjs start-storybook -p 3005 -c ./.storybook"
+    "storybook": "BABEL_ENV=commonjs start-storybook -p 3005 -c ./tools/.storybook"
   },
   "devDependencies": {
     "@kadira/storybook": "^2.35.3",
@@ -33,5 +33,8 @@
     "rimraf": "^2.6.1",
     "snazzy": "^7.0.0",
     "standard": "^10.0.2"
+  },
+  "dependencies": {
+    "@kadira/react-storybook-addon-info": "^3.4.0"
   }
 }

@@ -8,6 +8,7 @@ function buildModule (cwd) {
   const cjs = path.join(cwd, 'lib')
   const es = path.join(cwd, 'es')
   const babelIgnore = [
+    '**/*.story.js',
     '**/test/**',
     '**/*.test.js',
     '**/__snapshots__/**',

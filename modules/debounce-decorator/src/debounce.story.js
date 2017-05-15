@@ -1,8 +1,7 @@
 import React from 'react'
-import {render} from 'react-dom'
-import debounce from '../src/debounce'
+import debounce from './debounce'
 
-class Demo extends React.Component {
+class Story extends React.Component {
   state = {
     count: 0
   }
@@ -18,7 +17,7 @@ class Demo extends React.Component {
   render () {
     return (
       <div>
-        <h1>DebounceDecorator</h1>
+        <h1>@debounce Decorator</h1>
         <p>
           The click handler on the button will only fire after 250ms of no clicks.
         </p>
@@ -31,4 +30,9 @@ class Demo extends React.Component {
   }
 }
 
-render(<Demo />, document.querySelector('#root'))
+export default function ({storiesOf, action}) {
+  storiesOf('@debounce')
+    .add('attached to a click handler', () => (
+      <Story />
+    ))
+}

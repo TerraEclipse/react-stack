@@ -6,9 +6,11 @@
     "exec": "lerna exec --concurrency 1",
     "clean": "lerna run clean",
     "nuke": "yarn run clean && lerna clean --yes && rm -r node_modules",
-    "do": "./tools/module-run"
+    "do": "./tools/module-run",
+    "storybook": "BABEL_ENV=commonjs start-storybook -p 3005 -c ./.storybook"
   },
   "devDependencies": {
+    "@kadira/storybook": "^2.35.3",
     "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.1",

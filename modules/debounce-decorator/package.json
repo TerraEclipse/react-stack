@@ -16,7 +16,6 @@
     "build": "../../tools/build-module",
     "clean": "../../tools/clean-module",
     "coverage": "../../tools/test-module --coverage",
-    "demo": "../../tools/demo-module",
     "test": "../../tools/test-module"
   },
   "dependencies": {},

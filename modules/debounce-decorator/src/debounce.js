@@ -30,8 +30,6 @@ export default function debounce (delay, options = {}) {
           return method
         }
 
-        console.log('get')
-
         let debouncedMethod = _.debounce(method.bind(this), delay, options)
 
         definingProperty = true

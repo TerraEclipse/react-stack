@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@kadira/storybook": "^2.35.3",
+    "@kadira/react-storybook-addon-info": "^3.4.0",
     "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.1",
@@ -28,13 +29,11 @@
     "lodash": "^4.17.4",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-hot-loader": "next",
+    "react-test-renderer": "^15.5.4",
     "regenerator-runtime": "^0.10.5",
     "rimraf": "^2.6.1",
     "snazzy": "^7.0.0",
     "standard": "^10.0.2"
   },
-  "dependencies": {
-    "@kadira/react-storybook-addon-info": "^3.4.0"
-  }
+  "dependencies": {}
 }

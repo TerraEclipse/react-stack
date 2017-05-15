@@ -5,7 +5,8 @@
     "lerna": "lerna",
     "exec": "lerna exec --concurrency 1",
     "clean": "lerna run clean",
-    "nuke": "yarn run clean && lerna clean --yes && rm -r node_modules"
+    "nuke": "yarn run clean && lerna clean --yes && rm -r node_modules",
+    "demo": "./tools/module-run demo"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

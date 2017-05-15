@@ -8,7 +8,8 @@
     "do": "./tools/module-do",
     "nuke": "yarn run clean && lerna clean --yes",
     "reinstall": "yarn run nuke && yarn run exec yarn && yarn run lerna bootstrap",
-    "storybook": "BABEL_ENV=commonjs start-storybook -p 3005 -c ./tools/.storybook"
+    "storybook": "BABEL_ENV=commonjs start-storybook -p 3005 -c ./tools/.storybook",
+    "view-coverage": "./tools/view-coverage"
   },
   "devDependencies": {
     "@kadira/storybook": "^2.35.3",

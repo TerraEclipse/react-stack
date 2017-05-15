@@ -1,8 +1,10 @@
-/* eslint-env mocha */
-import {expect} from 'chai'
-import {mount} from 'enzyme'
+/**
+ * @jest-environment jsdom
+ */
+/* eslint-env jest */
 import React from 'react'
-import Portal from 'src/Portal'
+import {mount} from 'enzyme'
+import Portal from './'
 
 // Helper to check that an element contains a portal.
 function containsPortal (element, contentSelector) {
@@ -16,14 +18,14 @@ describe('Portal', () => {
     attachTo: rootNode
   }
 
-  before(() => {
+  beforeAll(() => {
     document.body.appendChild(rootNode)
   })
 
   describe('attached to body', () => {
     let wrapper
 
-    before(() => {
+    beforeAll(() => {
       wrapper = mount(
         <Portal>
           <div id='content' />
@@ -31,20 +33,20 @@ describe('Portal', () => {
       , mountOptions)
     })
 
-    after(() => {
+    afterAll(() => {
       wrapper.detach()
     })
 
     it('appends to <body> by default', () => {
-      expect(containsPortal(document.body, '#content')).to.be.ok
-      expect(wrapper.find('#content').length).to.equal(0)
+      expect(containsPortal(document.body, '#content')).toBeTruthy()
+      expect(wrapper.find('#content').length).toEqual(0)
     })
   })
 
   describe('attached to element by id', () => {
     let wrapper
 
-    before(() => {
+    beforeAll(() => {
       wrapper = mount(
         <div>
           <div id='target' />
@@ -55,13 +57,13 @@ describe('Portal', () => {
       , mountOptions)
     })
 
-    after(() => {
+    afterAll(() => {
       wrapper.detach()
     })
 
     it('can append to a target element by id', () => {
-      expect(containsPortal(wrapper.find('#target').node, '#content')).to.be.ok
-      expect(wrapper.find('#content').length).to.equal(0)
+      expect(containsPortal(wrapper.find('#target').node, '#content')).toBeTruthy()
+      expect(wrapper.find('#content').length).toEqual(0)
     })
   })
 
@@ -69,7 +71,7 @@ describe('Portal', () => {
     let target
     let portal
 
-    before(() => {
+    beforeAll(() => {
       target = mount(<div id='target' />)
       portal = mount(
         <Portal to={target.instance()}>
@@ -79,8 +81,8 @@ describe('Portal', () => {
     })
 
     it('can append to a target component instance', () => {
-      expect(containsPortal(target.node, '#content')).to.be.ok
-      expect(portal.find('#content').length).to.equal(0)
+      expect(containsPortal(target.node, '#content')).toBeTruthy()
+      expect(portal.find('#content').length).toEqual(0)
     })
   })
 
@@ -88,7 +90,7 @@ describe('Portal', () => {
     let target
     let portal
 
-    before(() => {
+    beforeAll(() => {
       class Target extends React.Component {
         render () {
           return (
@@ -107,8 +109,8 @@ describe('Portal', () => {
     })
 
     it('can append to a ref in a target component instance', () => {
-      expect(containsPortal(target.find('.ref').node, '#content')).to.be.ok
-      expect(portal.find('#content').length).to.equal(0)
+      expect(containsPortal(target.find('.ref').node, '#content')).toBeTruthy()
+      expect(portal.find('#content').length).toEqual(0)
     })
   })
 

@@ -6,12 +6,9 @@
     "parser": "babel-eslint"
   },
   "main": "lib/index.js",
-  "module": "es/index.js",
   "files": [
-    "css",
     "es",
-    "lib",
-    "umd"
+    "lib"
   ],
   "scripts": {
     "prepublish": "yarn run build",
@@ -23,11 +20,13 @@
   "dependencies": {},
   "peerDependencies": {
     "prop-types": "^15.5.8",
-    "react": "^15.5.4"
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
   },
   "devDependencies": {
     "prop-types": "^15.5.10",
-    "react": "^15.5.4"
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
   },
   "author": "Brian Link",
   "license": "Apache-2.0",

@@ -67,9 +67,7 @@ module.exports = class extends Generator {
     this.log('Creating file structure:')
 
     const copy = [
-      ['.gitignore', '.gitignore'],
-      ['CONTRIBUTING.md', 'CONTRIBUTING.md'],
-      ['nwb.config.js', 'nwb.config.js']
+      ['.gitignore', '.gitignore']
     ]
     _.each(copy, ([src, dest]) => {
       this.fs.copy(
@@ -82,10 +80,10 @@ module.exports = class extends Generator {
       ['_LICENSE', 'LICENSE'],
       ['_package.json', 'package.json'],
       ['_README.md', 'README.md'],
-      ['demo/src/_index.js', 'demo/src/index.js'],
       ['src/index.js', 'src/index.js'],
       ['src/_Component.js', 'src/' + this.props.componentName + '.js'],
-      ['tests/_Component-test.js', 'tests/' + this.props.componentName + '-test.js']
+      ['src/_Component._story.js', 'src/' + this.props.componentName + '.story.js'],
+      ['src/_Component._test.js', 'src/' + this.props.componentName + '.test.js']
     ]
     _.each(template, ([src, dest]) => {
       this.fs.copyTpl(

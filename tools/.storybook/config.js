@@ -5,7 +5,7 @@ import infoAddon from '@kadira/react-storybook-addon-info'
 setAddon(infoAddon)
 
 // Create webpack require context for stories for all modules, and load them.
-const req = require.context('../../modules', true, /story\.js$/)
+const req = require.context('../../modules', true, /\.story\.js$/)
 function loadStories () {
   req.keys().forEach((filepath) => {
     req(filepath).default({storiesOf, action})

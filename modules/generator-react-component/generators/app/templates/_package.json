@@ -8,28 +8,25 @@
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
-    "css",
     "es",
-    "lib",
-    "umd"
+    "lib"
   ],
   "scripts": {
     "prepublish": "yarn run build",
-    "bin": "PATH=../../node_modules/.bin:./node_modules/.bin:$PATH",
-    "nwb": "yarn run bin nwb",
-    "build": "yarn run nwb -- build-react-component",
-    "clean": "yarn run nwb -- clean-module && npm clean-demo",
-    "start": "yarn run nwb -- serve-react-demo",
-    "test": "yarn run nwb -- test-react",
-    "test:coverage": "yarn run nwb -- test-react --coverage",
-    "test:watch": "yarn run nwb -- test-react --server"
+    "build": "../../tools/build-module",
+    "clean": "../../tools/clean-module",
+    "test": "../../tools/test-module",
+    "coverage": "../../tools/test-module --coverage"
   },
   "dependencies": {},
   "peerDependencies": {
     "react": "^15.5.4",
     "prop-types": "15.x"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "react": "^15.5.4",
+    "prop-types": "15.x"
+  },
   "author": "<%- developerName %>",
   "license": "Apache-2.0",
   "repository": {

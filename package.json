@@ -12,7 +12,7 @@
     "storybook": "BABEL_ENV=commonjs start-storybook -p 3005 -c ./tools/.storybook",
     "docs": "BABEL_ENV=commonjs build-storybook -c ./tools/.storybook -o ./docs",
     "view-coverage": "./tools/view-coverage",
-    "generate-component": "yo @terraeclipse/react-component"
+    "generate-component": "cd modules && yo @terraeclipse/react-component && cd ../"
   },
   "devDependencies": {
     "@kadira/storybook": "^2.35.3",

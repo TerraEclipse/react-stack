@@ -7,7 +7,8 @@ module.exports = {
   // collectCoverageFrom in ./tools/test-module
   // coverageDirectory in ./tools/test-module
   coveragePathIgnorePatterns: [
-    '__fixtures__'
+    '__fixtures__',
+    '\\.story\\.js$'
   ],
   coverageThreshold: {
     'global': {

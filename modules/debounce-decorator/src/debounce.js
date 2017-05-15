@@ -12,10 +12,13 @@ import _ from 'lodash'
  */
 export default function debounce (delay, options = {}) {
   return function debounceDecorator (target, name, descriptor) {
-    let method = descriptor.value
+    if (typeof descriptor === 'undefined') {
+      throw new Error('@debounce decorator can only be applied to class methods')
+    }
 
+    let method = descriptor.value
     if (typeof method !== 'function') {
-      throw new Error(`@debounce decorator can only be applied to methods not: ${typeof method}`)
+      throw new Error('@debounce decorator can only be applied to class methods')
     }
 
     // In IE11 calling Object.defineProperty has a side-effect of evaluating the

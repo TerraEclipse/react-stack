@@ -1,10 +1,10 @@
 {
-  "name": "@terraeclipse/debounce-decorator",
-  "version": "2.0.1",
+  "name": "@terraeclipse/features-decorator",
+  "version": "1.0.0",
   "publishConfig": {
     "access": "public"
   },
-  "description": "Debounce Decorator",
+  "description": "Features Decorator",
   "standard": {
     "parser": "babel-eslint"
   },
@@ -18,13 +18,16 @@
     "prepublish": "yarn run build",
     "build": "../../tools/build-module",
     "clean": "../../tools/clean-module",
-    "coverage": "../../tools/test-module --coverage",
-    "test": "../../tools/test-module"
+    "test": "../../tools/test-module",
+    "coverage": "../../tools/test-module --coverage"
   },
-  "dependencies": {},
+  "dependencies": {
+    "feature.js": "^1.0.0"
+  },
   "peerDependencies": {
-    "lodash": "^4.17.4",
-    "react": "15.x"
+    "prop-types": "15.x",
+    "react": "^15.5.4",
+    "react-display-name": "^0.2.0"
   },
   "devDependencies": {},
   "author": "Brian Link",
@@ -36,7 +39,7 @@
   "bugs": {
     "url": "https://github.com/TerraEclipse/react-stack/issues"
   },
-  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/packages/debounce-decorator#readme",
+  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/packages/features-decorator#readme",
   "keywords": [
     "react-component"
   ]

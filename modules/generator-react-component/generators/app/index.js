@@ -4,44 +4,53 @@ var _ = require('lodash')
 
 module.exports = class extends Generator {
   initializing () {
-    var prompts = [{
+    this.props = {
+      currentYear: new Date().getFullYear()
+    }
+  }
+
+  prompting () {
+    return this.prompt([{
       type: 'input',
       name: 'projectName',
       message: 'First, what is the name of your component?',
       default: 'My Component'
-    }]
-
-    return this.prompt(prompts).then((props) => {
-      this.props = props
+    }])
+    .then((props) => {
+      _.extend(this.props, props)
       this.props.packageName = _.kebabCase(_.deburr(this.props.projectName))
       if (this.props.packageName.slice(0, 6) !== 'react-') {
         this.props.packageName = 'react-' + this.props.packageName
       }
-      this.props.scopedPackageName = '@terraeclipse/' + this.props.packageName
       this.props.componentName = _.upperFirst(_.camelCase(this.props.projectName))
-      this.props.currentYear = new Date().getFullYear()
     })
-  }
-
-  prompting () {
-    var prompts = [{
+    .then(() => this.prompt([{
       type: 'input',
-      name: 'componentName',
-      message: 'What is the ClassName for your component?',
-      default: this.props.componentName
-    }, {
+      name: 'packageName',
+      message: 'What is the internal name for your component?',
+      default: this.props.packageName
+    }]))
+    .then((props) => {
+      _.extend(this.props, props)
+      this.props.scopedPackageName = '@terraeclipse/' + this.props.packageName
+    })
+    .then(() => this.prompt([{
       type: 'input',
       name: 'scopedPackageName',
       message: 'What will the npm package name be?',
       default: this.props.scopedPackageName
     }, {
       type: 'input',
+      name: 'componentName',
+      message: 'What is the ClassName for your component?',
+      default: this.props.componentName
+    }, {
+      type: 'input',
       name: 'developerName',
       message: 'What is your name? (for copyright notice, author, etc.)',
       store: true
-    }]
-
-    return this.prompt(prompts).then((props) => {
+    }]))
+    .then((props) => {
       _.extend(this.props, props)
     })
   }
@@ -53,7 +62,6 @@ module.exports = class extends Generator {
       message: 'Would you like to create a new directory for your project?',
       default: (path.basename(this.destinationRoot()) !== this.props.packageName)
     }]
-
     return this.prompt(prompts).then((props) => {
       _.extend(this.props, props)
       if (props.createDirectory) {

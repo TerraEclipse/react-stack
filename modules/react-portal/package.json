@@ -26,11 +26,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },
-  "devDependencies": {
-    "prop-types": "^15.5.10",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4"
-  },
+  "devDependencies": {},
   "author": "Brian Link",
   "license": "Apache-2.0",
   "repository": {

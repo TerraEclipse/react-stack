@@ -29,11 +29,7 @@
     "prop-types": "15.x",
     "react": "^15.5.4"
   },
-  "devDependencies": {
-    "classnames": "^2.2.5",
-    "prop-types": "15.x",
-    "react": "^15.5.4"
-  },
+  "devDependencies": {},
   "author": "Brian Link",
   "license": "Apache-2.0",
   "repository": {

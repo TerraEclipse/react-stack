@@ -1,1 +1,2 @@
-export <%= componentName %> from './<%= componentName %>'
+import <%= componentName %> from './<%= componentName %>'
+export default <%= componentName %>

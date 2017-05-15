@@ -15,8 +15,8 @@
     "generate-component": "cd modules && yo @terraeclipse/react-component && cd ../"
   },
   "devDependencies": {
-    "@kadira/storybook": "^2.35.3",
     "@kadira/react-storybook-addon-info": "^3.4.0",
+    "@kadira/storybook": "^2.35.3",
     "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-jest": "^20.0.1",
@@ -31,7 +31,9 @@
     "jest": "^20.0.1",
     "lerna": "^2.0.0-rc.4",
     "lodash": "^4.17.4",
+    "prop-types": "^15.5.10",
     "react": "^15.5.4",
+    "react-display-name": "^0.2.0",
     "react-dom": "^15.5.4",
     "react-test-renderer": "^15.5.4",
     "regenerator-runtime": "^0.10.5",

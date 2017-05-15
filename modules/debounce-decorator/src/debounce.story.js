@@ -17,7 +17,6 @@ class Story extends React.Component {
   render () {
     return (
       <div>
-        <h1>@debounce Decorator</h1>
         <p>
           The click handler on the button will only fire after 250ms of no clicks.
         </p>
@@ -31,7 +30,7 @@ class Story extends React.Component {
 }
 
 export default function ({storiesOf, action}) {
-  storiesOf('@debounce')
+  storiesOf('debounce-decorator')
     .add('attached to a click handler', () => (
       <Story />
     ))

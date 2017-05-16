@@ -2,8 +2,8 @@ import React from 'react'
 import Icon from './'
 
 export default function ({storiesOf, action}) {
-  storiesOf('react-icon', module).addWithInfo(
-    'simple icons',
+  storiesOf('Components', module).addWithInfo(
+    'react-icon',
     `
       Example usage of <Icon> component.
     `,

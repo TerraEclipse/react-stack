@@ -30,8 +30,8 @@ class Story extends React.Component {
 }
 
 export default function ({storiesOf, action}) {
-  storiesOf('throttle-decorator', module).addWithInfo(
-    'usage',
+  storiesOf('Decorators', module).addWithInfo(
+    'throttle-decorator',
     `
       An example that uses @throttle on a click handler.
 

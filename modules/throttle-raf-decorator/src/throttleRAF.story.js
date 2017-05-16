@@ -50,7 +50,7 @@ class Story extends React.Component {
 }
 
 export default function ({storiesOf, action}) {
-  storiesOf('throttle-raf-decorator', module).add('usage', () => (
+  storiesOf('Decorators', module).add('throttle-raf-decorator', () => (
     <Story />
   ))
 }

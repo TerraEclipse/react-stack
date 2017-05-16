@@ -30,8 +30,8 @@ class Story extends React.Component {
 }
 
 export default function ({storiesOf, action}) {
-  storiesOf('debounce-decorator', module).addWithInfo(
-    'attached to a click handler',
+  storiesOf('Decorators', module).addWithInfo(
+    'debounce-decorator',
     `
       An example that uses @debounce on a click handler.
 

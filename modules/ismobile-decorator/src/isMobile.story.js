@@ -13,8 +13,8 @@ class Story extends React.Component {
 }
 
 export default function ({storiesOf, action}) {
-  storiesOf('ismobile-decorator', module).addWithInfo(
-    'usage',
+  storiesOf('Decorators', module).addWithInfo(
+    'ismobile-decorator',
     `
       Example usage of isMobile decorator.
 

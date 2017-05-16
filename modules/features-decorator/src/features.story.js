@@ -16,8 +16,8 @@ class Story extends React.Component {
 }
 
 export default function ({storiesOf, action}) {
-  storiesOf('features-decorator', module).addWithInfo(
-    'usage',
+  storiesOf('Decorators', module).addWithInfo(
+    'features-decorator',
     `
       An example for using the features decorator.
 

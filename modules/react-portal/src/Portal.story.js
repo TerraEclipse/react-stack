@@ -2,8 +2,8 @@ import React from 'react'
 import Portal from './'
 
 export default function ({storiesOf, action}) {
-  storiesOf('react-portal', module).addWithInfo(
-    'example portal',
+  storiesOf('Components', module).addWithInfo(
+    'react-portal',
     `
       Example usage of <Portal> component.
     `,

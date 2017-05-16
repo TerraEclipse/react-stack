@@ -28,7 +28,7 @@ class Story extends React.Component {
 }
 
 export default function ({storiesOf, action}) {
-  storiesOf('measure', module).addWithInfo(
+  storiesOf('Decorators', module).addWithInfo(
     'measure-decorator',
     `
       Decorate any component with @measure to have its bounds and a remeasure()

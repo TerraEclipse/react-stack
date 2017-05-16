@@ -1,0 +1,42 @@
+{
+  "name": "@terraeclipse/throttle-raf-decorator",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "ThrottleRAF Decorator",
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "es",
+    "lib"
+  ],
+  "scripts": {
+    "prepublish": "yarn run build",
+    "build": "../../tools/build-module",
+    "clean": "../../tools/clean-module",
+    "test": "../../tools/test-module",
+    "coverage": "../../tools/test-module --coverage"
+  },
+  "dependencies": {
+    "raf": "^3.3.2"
+  },
+  "peerDependencies": {},
+  "devDependencies": {},
+  "author": "Brian Link",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TerraEclipse/react-stack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TerraEclipse/react-stack/issues"
+  },
+  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/packages/throttle-raf-decorator#readme",
+  "keywords": [
+    "react-component"
+  ]
+}

@@ -58,7 +58,7 @@ export class IsMobileProvider extends React.Component {
 
   getChildContext () {
     return {
-      isMobile: (process.env.BROWSER || typeof window !== 'undefined')
+      isMobile: (typeof window !== 'undefined')
         ? new IsMobileJS.Class(this.props.userAgent)
         : new IsMobileJS(this.props.userAgent)
     }

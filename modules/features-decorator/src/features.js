@@ -2,8 +2,35 @@ import React from 'react'
 import getDisplayName from 'react-display-name'
 
 // Feature.js is bad and assumes browser environment ;)
-if (process.env.BROWSER || typeof window !== 'undefined') {
+if (typeof window !== 'undefined') {
   require('feature.js')
+
+  // Fix the webGL check (problem occured in Windows7-Chrome55)
+  // @see https://github.com/viljamis/feature.js/issues/52
+  window.feature.webGL = (function (el) {
+    try {
+      var supports = ('probablySupportsContext' in el)
+        ? 'probablySupportsContext'
+        : ('supportsContext' in el)
+          ? 'supportsContext'
+          : 'getContext'
+      if (supports in el) {
+        var ctx = el.getContext('webgl') || el.getContext('experimental-webgl')
+        if (ctx.getParameter(ctx.STENCIL_TEST) === null) {
+          return false
+        }
+        return el[supports]('webgl') || el[supports]('experimental-webgl')
+      }
+      return 'WebGLRenderingContext' in window
+    } catch (err) {
+      return false
+    }
+  })(document.createElement('canvas'))
+
+  // If mapboxgl is on the page, add their check too.
+  window.feature.mapboxgl = window.mapboxgl
+    ? window.mapboxgl.supported({failIfMajorPerformanceCaveat: true})
+    : false
 }
 
 /**

@@ -1,10 +1,10 @@
 {
-  "name": "@terraeclipse/debounce-decorator",
-  "version": "2.0.2",
+  "name": "@terraeclipse/throttle-decorator",
+  "version": "1.0.0",
   "publishConfig": {
     "access": "public"
   },
-  "description": "Debounce Decorator",
+  "description": "Throttle Decorator",
   "standard": {
     "parser": "babel-eslint"
   },
@@ -18,8 +18,8 @@
     "prepublish": "yarn run build",
     "build": "../../tools/build-module",
     "clean": "../../tools/clean-module",
-    "coverage": "../../tools/test-module --coverage",
-    "test": "../../tools/test-module"
+    "test": "../../tools/test-module",
+    "coverage": "../../tools/test-module --coverage"
   },
   "dependencies": {},
   "peerDependencies": {
@@ -35,7 +35,7 @@
   "bugs": {
     "url": "https://github.com/TerraEclipse/react-stack/issues"
   },
-  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/packages/debounce-decorator#readme",
+  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/packages/throttle-decorator#readme",
   "keywords": [
     "react-component"
   ]

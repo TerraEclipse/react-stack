@@ -1,19 +1,5 @@
 import React from 'react'
-import mapboxPkg from 'mapbox-gl/package.json'
 import {MapGL, Layer} from './'
-
-// Hacky way to get the external scripts into the page. Normally, you'd do
-// some webpack hackery or just include it in the page template.
-if (window && !window._addedMapbox) {
-  var script = document.createElement('script')
-  script.src = `https://api.mapbox.com/mapbox-gl-js/v${mapboxPkg.version}/mapbox-gl.js`
-  document.head.appendChild(script)
-  var link = document.createElement('link')
-  link.rel = 'stylesheet'
-  link.href = `https://api.mapbox.com/mapbox-gl-js/v${mapboxPkg.version}/mapbox-gl.css`
-  document.head.appendChild(link)
-  window._addedMapbox = true
-}
 
 const defaults = {
   accessToken: 'pk.eyJ1IjoidGVycmEiLCJhIjoiVmNta3lMSSJ9.V4vST11PV1hulV2Mf9DqdQ',

@@ -4,6 +4,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
+import loadMapbox from './loadMapbox'
 
 class MapGL extends React.Component {
   static propTypes = {
@@ -12,7 +13,6 @@ class MapGL extends React.Component {
       PropTypes.object
     ]).isRequired,
     accessToken: PropTypes.string.isRequired,
-    mapboxgl: PropTypes.object,
     center: PropTypes.arrayOf(PropTypes.number),
     zoom: PropTypes.array,
     minZoom: PropTypes.number,
@@ -51,7 +51,8 @@ class MapGL extends React.Component {
       'bottom-right'
     ]),
     interactive: PropTypes.bool,
-    renderUnsupported: PropTypes.func
+    renderUnsupported: PropTypes.func,
+    loadCSS: PropTypes.bool
   }
 
   static defaultProps = {
@@ -69,7 +70,8 @@ class MapGL extends React.Component {
     movingMethod: 'flyTo',
     pitch: 0,
     attributionPosition: 'bottom-right',
-    interactive: true
+    interactive: true,
+    loadCSS: true
   }
 
   static childContextTypes = {
@@ -85,16 +87,15 @@ class MapGL extends React.Component {
     map: this.state.map
   })
 
-  mapboxgl () {
-    return this.props.mapboxgl || window.mapboxgl
-  }
-
   componentDidMount () {
-    if (this.mapboxgl() && this.mapboxgl().supported()) {
-      this.bindEvents(this.createMap())
-    } else {
-      this.setState({unsupported: true})
-    }
+    loadMapbox({loadCSS: this.props.loadCSS})
+      .then((mapboxgl) => {
+        this.bindEvents(this.createMap(mapboxgl))
+      })
+      .catch((err) => {
+        console.warn(err)
+        this.setState({unsupported: true})
+      })
   }
 
   componentWillUnmount () {
@@ -159,10 +160,10 @@ class MapGL extends React.Component {
     return null
   }
 
-  createMap () {
-    this.mapboxgl().accessToken = this.props.accessToken
+  createMap (mapboxgl) {
+    mapboxgl.accessToken = this.props.accessToken
 
-    const map = new (this.mapboxgl()).Map({
+    const map = new mapboxgl.Map({
       preserveDrawingBuffer: this.props.preserveDrawingBuffer,
       hash: this.props.hash,
       zoom: this.props.zoom,

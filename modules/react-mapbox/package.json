@@ -1,5 +1,5 @@
 {
-  "name": "@terraeclipse/react-mapbox-gl",
+  "name": "@terraeclipse/react-mapbox",
   "version": "1.0.0",
   "publishConfig": {
     "access": "public"
@@ -38,7 +38,7 @@
   "bugs": {
     "url": "https://github.com/TerraEclipse/react-stack/issues"
   },
-  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/packages/react-mapbox-gl#readme",
+  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/packages/react-mapbox#readme",
   "keywords": [
     "react-component"
   ]

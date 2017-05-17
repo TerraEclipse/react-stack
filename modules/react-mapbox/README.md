@@ -1,4 +1,4 @@
-@terraeclipse/react-mapbox-gl
+@terraeclipse/react-mapbox
 ==========================
 
 About

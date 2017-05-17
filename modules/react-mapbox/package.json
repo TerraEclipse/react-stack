@@ -21,13 +21,15 @@
     "test": "../../tools/test-module",
     "coverage": "../../tools/test-module --coverage"
   },
-  "dependencies": {
-    "mapbox-gl": "^0.37.0"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "lodash": "^4.17.4",
+    "mapbox-gl": "^0.37.0",
     "prop-types": "15.x",
     "react": "^15.5.4"
+  },
+  "devDependencies": {
+    "mapbox-gl": "^0.37.0"
   },
   "author": "Brian Link",
   "license": "Apache-2.0",

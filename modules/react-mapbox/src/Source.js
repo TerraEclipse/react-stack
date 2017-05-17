@@ -17,6 +17,7 @@ class Source extends React.Component {
       PropTypes.string,
       PropTypes.object
     ]),
+    dataRev: PropTypes.number,
     url: PropTypes.string,
     tiles: PropTypes.array,
     tileSize: PropTypes.number,
@@ -37,11 +38,65 @@ class Source extends React.Component {
   }
 
   componentDidMount () {
+    this.addSource(this.props)
+  }
+
+  componentWillUnmount () {
+    this.removeSource(this.props)
+  }
+
+  componentWillReceiveProps (nextProps) {
+    let {map} = this.context
+
+    // If any of these props change, we have to just recreate the
+    // source from scratch.
+    let invalidate = [
+      'type',
+      'url',
+      'tiles',
+      'tileSize',
+      'minzoom',
+      'maxzoom',
+      'buffer',
+      'tolerance',
+      'cluster',
+      'clusterRadius',
+      'clusterMaxZoom',
+      'canvas',
+      'animate'
+    ]
+    if (!_.isEqual(
+      _.pick(this.props, invalidate),
+      _.pick(nextProps, invalidate)
+    )) {
+      this.removeSource(this.props.id)
+      this.addSource(nextProps)
+      return
+    }
+
+    // The coordinates changed.
+    if (!_.isEqual(this.props.coordinates, nextProps.coordinates)) {
+      map.getSource(nextProps.id).setCoordinates(nextProps.coordinates)
+    }
+
+    // The data changed.
+    if (!_.isEqual(this.props.data, nextProps.data)) {
+      map.getSource(nextProps.id).setData(nextProps.data)
+    }
+
+    // The dataRev changed (perhaps a timestamp). Use this to 'refresh'
+    // an external geojson source.
+    if (this.props.dataRev !== nextProps.dataRev) {
+      map.getSource(nextProps.id).setData(nextProps.data)
+    }
+  }
+
+  addSource (props) {
     let {map} = this.context
     let options = {}
 
     // Grab basic options from props.
-    _.extend(options, _.pick(this.props, [
+    _.extend(options, _.pick(props, [
       'type',
       'data',
       'url',
@@ -60,14 +115,14 @@ class Source extends React.Component {
     ]))
 
     // Add the source.
-    map.addSource(this.props.id, options)
+    map.addSource(props.id, options)
     map.fire('_addSource', this.props.id)
   }
 
-  componentWillUnmount () {
+  removeSource (props) {
     let {map} = this.context
-    map.removeSource(this.props.id)
-    map.fire('_removeSource', this.props.id)
+    map.removeSource(props.id)
+    map.fire('_removeSource', props.id)
   }
 
   render () {

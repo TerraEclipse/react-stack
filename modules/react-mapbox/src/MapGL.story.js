@@ -14,10 +14,7 @@ const defaults = {
     left: 0,
     right: 0,
     bottom: 0
-  },
-  renderUnsupported: () => (
-    <p>Just switch back and forth to this tab to see the map</p>
-  )
+  }
 }
 
 export default function ({storiesOf, action}) {

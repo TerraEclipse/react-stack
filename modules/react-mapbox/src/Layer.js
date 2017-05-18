@@ -69,12 +69,14 @@ class Layer extends React.Component {
     // Add the layer to the map.
     map.addLayer(options, this.props.before)
     map.fire('_addLayer', this.props.id)
+    console.log('mount layer', this.props.id)
   }
 
   componentWillUnmount () {
     let {map} = this.context
     map.removeLayer(this.props.id)
     map.fire('_removeLayer', this.props.id)
+    console.log('unmount layer', this.props.id)
   }
 
   componentWillReceiveProps (nextProps) {

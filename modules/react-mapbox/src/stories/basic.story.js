@@ -3,7 +3,7 @@ import {MapGL, Layer} from '../'
 import defaults from './defaults'
 
 export default function ({storiesOf, action}) {
-  storiesOf('Mapbox', module).addWithInfo('Basic Map',
+  storiesOf('Mapbox', module).addWithInfo('Basic',
     `
       Basic map with a geojson layer.
     `,

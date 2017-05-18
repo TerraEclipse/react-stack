@@ -21,7 +21,9 @@
     "test": "../../tools/test-module",
     "coverage": "../../tools/test-module --coverage"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@terraeclipse/throttle-raf-decorator": "^1.0.2"
+  },
   "peerDependencies": {
     "lodash": "^4.17.4",
     "mapbox-gl": "^0.37.0",

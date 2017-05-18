@@ -1,5 +1,5 @@
 import React from 'react'
-import {MapGL, Hover, Source, Layer} from '../'
+import {MapGL, Hover, Source, Layer, Children} from '../'
 import defaults from './defaults'
 
 export default function ({storiesOf, action}) {
@@ -32,18 +32,35 @@ export default function ({storiesOf, action}) {
             'line-width': 2
           }}
         />
-        <Hover layer='state-fills' uid='name'>
+        <Hover
+          layer='state-fills'
+          uid='name'
+          onHoverOver={(feature) => console.log('Over', feature.properties.name)}
+          onHoverOut={(feature) => console.log('Out', feature.properties.name)}
+        >
           {({features}) => (
-            <Layer
-              id='state-hovers'
-              type='fill'
-              source='states'
-              paint={{
-                'fill-color': '#627BC1',
-                'fill-opacity': 1
-              }}
-              filter={['==', 'name', features.length ? features[0].properties.name : '']}
-            />
+            <Children>
+              <Layer
+                id='state-hover'
+                type='fill'
+                source='states'
+                paint={{
+                  'fill-color': '#627BC1',
+                  'fill-opacity': 1
+                }}
+                filter={['==', 'name', features.length ? features[0].properties.name : '']}
+              />
+              <Layer
+                id='state-hover-border'
+                type='line'
+                source='states'
+                paint={{
+                  'line-color': '#425BA1',
+                  'line-width': 2
+                }}
+                filter={['==', 'name', features.length ? features[0].properties.name : '']}
+              />
+            </Children>
           )}
         </Hover>
       </MapGL>

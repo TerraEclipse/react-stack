@@ -6,6 +6,8 @@ class Hover extends React.Component {
   static propTypes = {
     layer: PropTypes.string.isRequired,
     uid: PropTypes.string,
+    onHoverOver: PropTypes.func,
+    onHoverOut: PropTypes.func,
     children: PropTypes.func
   }
 
@@ -18,14 +20,12 @@ class Hover extends React.Component {
   }
 
   state = {
-    ids: [],
+    uids: [],
     features: []
   }
 
   constructor () {
     super()
-    this.ids = []
-    this.features = []
     this.handleMouseMove = this.handleMouseMove.bind(this)
     this.handleMouseLeave = this.handleMouseLeave.bind(this)
   }
@@ -58,16 +58,36 @@ class Hover extends React.Component {
   }
 
   handleMouseMove (e) {
-    let ids = _.map(e.features, `properties.${this.props.uid}`)
-    if (_.difference(ids, this.state.ids).length) {
-      this.ids = ids
-      this.features = e.features
-      this.setState(() => ({ids: this.ids, features: this.features}))
+    let uidPath = `properties.${this.props.uid}`
+    let uids = _.map(e.features, uidPath)
+    let over = _.difference(uids, this.state.uids)
+    let out = _.difference(this.state.uids, uids)
+    if (over.length || out.length) {
+      if (out.length && this.props.onHoverOut) {
+        _.each(out, (uid) => {
+          this.props.onHoverOut(_.find(this.state.features, [uidPath, uid]), e)
+        })
+      }
+      if (over.length && this.props.onHoverOver) {
+        _.each(over, (uid) => {
+          this.props.onHoverOver(_.find(e.features, [uidPath, uid]), e)
+        })
+      }
+      if (this.props.children) {
+        this.setState({uids: uids, features: e.features})
+      }
     }
   }
 
   handleMouseLeave (e) {
-    this.setState(() => ({ids: [], features: []}))
+    if (this.state.uids && this.props.onHoverOut) {
+      _.each(this.state.features, (feature) => {
+        this.props.onHoverOut(feature, e)
+      })
+    }
+    if (this.props.children) {
+      this.setState({uids: [], features: []})
+    }
   }
 
   render () {

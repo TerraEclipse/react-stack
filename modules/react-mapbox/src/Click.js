@@ -50,9 +50,9 @@ class Click extends React.Component {
   bindListeners (props) {
     let {map} = this.context
     if (props.layer) {
-      map.on(this.props.event, props.layer, this.handleClick)
+      map.on(props.event, props.layer, this.handleClick)
     } else {
-      map.on(this.props.event, this.handleClick)
+      map.on(props.event, this.handleClick)
     }
     if (props.avoidDoubleClick) {
       map.on('dblclick', this.handleDoubleClick)
@@ -62,9 +62,9 @@ class Click extends React.Component {
   unbindListeners (props) {
     let {map} = this.context
     if (props.layer) {
-      map.off(this.props.event, props.layer, this.handleClick)
+      map.off(props.event, props.layer, this.handleClick)
     } else {
-      map.off(this.props.event, this.handleClick)
+      map.off(props.event, this.handleClick)
     }
     if (props.avoidDoubleClick) {
       clearTimeout(this._doubleClickTimeout)

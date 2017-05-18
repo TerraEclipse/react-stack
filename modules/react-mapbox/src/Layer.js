@@ -28,7 +28,8 @@ class Layer extends React.Component {
     filter: PropTypes.array,
     layout: PropTypes.object,
     paint: PropTypes.object,
-    before: PropTypes.string
+    before: PropTypes.string,
+    onClick: PropTypes.func
   }
 
   static contextTypes = {

@@ -1,5 +1,5 @@
 import React from 'react'
-import {MapGL, Hover, Source, Layer, Children} from '../'
+import {MapGL, Click, Hover, Source, Layer, Children} from '../'
 import defaults from './defaults'
 
 export default function ({storiesOf, action}) {
@@ -32,11 +32,16 @@ export default function ({storiesOf, action}) {
             'line-width': 2
           }}
         />
+        <Click
+          layer='state-fills'
+          avoidDoubleClick
+          onClick={(e, features) => console.log('Click', features[0].properties.name)}
+        />
         <Hover
           layer='state-fills'
           uid='name'
-          onHoverOver={(feature) => console.log('Over', feature.properties.name)}
-          onHoverOut={(feature) => console.log('Out', feature.properties.name)}
+          onHoverOver={(e, feature) => console.log('Over', feature.properties.name)}
+          onHoverOut={(e, feature) => console.log('Out', feature.properties.name)}
         >
           {({features}) => (
             <Children>

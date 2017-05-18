@@ -65,12 +65,12 @@ class Hover extends React.Component {
     if (over.length || out.length) {
       if (out.length && this.props.onHoverOut) {
         _.each(out, (uid) => {
-          this.props.onHoverOut(_.find(this.state.features, [uidPath, uid]), e)
+          this.props.onHoverOut(e, _.find(this.state.features, [uidPath, uid]))
         })
       }
       if (over.length && this.props.onHoverOver) {
         _.each(over, (uid) => {
-          this.props.onHoverOver(_.find(e.features, [uidPath, uid]), e)
+          this.props.onHoverOver(e, _.find(e.features, [uidPath, uid]))
         })
       }
       if (this.props.children) {
@@ -82,7 +82,7 @@ class Hover extends React.Component {
   handleMouseLeave (e) {
     if (this.state.uids && this.props.onHoverOut) {
       _.each(this.state.features, (feature) => {
-        this.props.onHoverOut(feature, e)
+        this.props.onHoverOut(e, feature)
       })
     }
     if (this.props.children) {
@@ -92,7 +92,9 @@ class Hover extends React.Component {
 
   render () {
     return this.props.children
-      ? this.props.children({features: this.state.features})
+      ? (typeof this.props.children === 'function')
+        ? this.props.children({features: this.state.features})
+        : React.Children.only(this.props.children)
       : null
   }
 }

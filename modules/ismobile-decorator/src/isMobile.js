@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
-import IsMobileJS from 'ismobilejs'
 import getDisplayName from 'react-display-name'
 
 /**
@@ -39,32 +38,5 @@ export default function isMobileDecorator (...devices) {
   } else {
     devices = ['any']
     return decorate.apply(null, arguments)
-  }
-}
-
-/**
- * Provider of the isMobile context (server should use userAgent from the
- * request object, client can ignore).
- */
-export class IsMobileProvider extends React.Component {
-  static propTypes = {
-    userAgent: PropTypes.string,
-    children: PropTypes.node
-  }
-
-  static childContextTypes = {
-    isMobile: PropTypes.object
-  }
-
-  getChildContext () {
-    return {
-      isMobile: (typeof window !== 'undefined')
-        ? new IsMobileJS.Class(this.props.userAgent)
-        : new IsMobileJS(this.props.userAgent)
-    }
-  }
-
-  render () {
-    return this.props.children
   }
 }

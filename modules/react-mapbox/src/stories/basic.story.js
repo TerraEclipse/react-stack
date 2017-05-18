@@ -3,8 +3,11 @@ import {MapGL, Layer} from '../'
 import defaults from './defaults'
 
 export default function ({storiesOf, action}) {
-  storiesOf('Mapbox', module).add('Basic Map', () => {
-    return (
+  storiesOf('Mapbox', module).addWithInfo('Basic Map',
+    `
+      Basic map with a geojson layer.
+    `,
+    () => (
       <MapGL {...defaults}>
         <Layer
           id='points-markers'
@@ -47,5 +50,5 @@ export default function ({storiesOf, action}) {
         />
       </MapGL>
     )
-  })
+  )
 }

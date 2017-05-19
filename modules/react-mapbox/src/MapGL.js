@@ -65,7 +65,8 @@ class MapGL extends React.Component {
     this.unmounted = true
     if (map) {
       map.off()
-      // NOTE: We need to defer removing the map to after all children have unmounted
+      // NOTE: We need to defer removing the map to after all
+      // children have unmounted
       process.nextTick(() => {
         map.remove()
       })
@@ -110,7 +111,9 @@ class MapGL extends React.Component {
     return this.props.renderUnsupported ? (
       this.props.renderUnsupported()
     ) : (
-      <div className='unsupported'>Your browser does not support WebGL-based maps.</div>
+      <div className='unsupported'>
+        Your browser does not support WebGL-based maps.
+      </div>
     )
   }
 

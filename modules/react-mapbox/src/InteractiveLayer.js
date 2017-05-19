@@ -39,8 +39,11 @@ class InteractiveLayer extends React.Component {
     let {
       id, source, sourceLayer, uid,
       base, borders, hover, hoverBorder,
-      active, activeBorder, activeUid
+      active, activeBorder, activeUid,
+      clickEvent, avoidDoubleClick, doubleClickSpeed,
+      onClick, onHoverOver, onHoverOut
     } = this.props
+
     let sourceId = typeof source === 'string' ? source : source.id
 
     return (
@@ -70,22 +73,22 @@ class InteractiveLayer extends React.Component {
           />
         ) : null}
 
-        {this.props.onClick ? (
+        {onClick ? (
           <Click
             layer={id}
-            event={this.props.clickEvent}
-            avoidDoubleClick={this.props.avoidDoubleClick}
-            doubleClickSpeed={this.props.doubleClickSpeed}
-            onClick={this.props.onClick}
+            event={clickEvent}
+            avoidDoubleClick={avoidDoubleClick}
+            doubleClickSpeed={doubleClickSpeed}
+            onClick={onClick}
           />
         ) : null}
 
-        {(hover || hoverBorder || this.props.onHoverOver || this.props.onHoverOut) ? (
+        {(hover || hoverBorder || onHoverOver || onHoverOut) ? (
           <Hover
             layer={id}
             uid={uid}
-            onHoverOver={this.props.onHoverOver}
-            onHoverOut={this.props.onHoverOut}
+            onHoverOver={onHoverOver}
+            onHoverOut={onHoverOut}
           >
             {({features}) => {
               let hoveredUid = features.length

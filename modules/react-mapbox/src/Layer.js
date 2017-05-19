@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
-import diff from './diff'
+import diff from './util/diff'
 import Source from './Source'
 
 class Layer extends React.Component {

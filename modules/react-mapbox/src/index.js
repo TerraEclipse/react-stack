@@ -1,4 +1,3 @@
-export {default as loadMapbox} from './loadMapbox'
 export {default as MapGL} from './MapGL'
 export {default as Children} from './Children'
 export {default as Click} from './Click'

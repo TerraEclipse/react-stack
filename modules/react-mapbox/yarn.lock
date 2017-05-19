@@ -18,6 +18,22 @@
   version "3.0.0"
   resolved "https://registry.npmjs.org/@mapbox/whoots-js/-/whoots-js-3.0.0.tgz#c1de4293081424da3ac30c23afa850af1019bb54"
 
+"@terraeclipse/throttle-raf-decorator@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/@terraeclipse/throttle-raf-decorator/-/throttle-raf-decorator-1.0.2.tgz#9ca764b6c5b83a9412e51137c1b51f54798e74d2"
+  dependencies:
+    raf "^3.3.2"
+
+"@turf/bbox@^4.3.0":
+  version "4.3.0"
+  resolved "https://registry.npmjs.org/@turf/bbox/-/bbox-4.3.0.tgz#644c4b745172d21aae70d1584b2a7866f1040865"
+  dependencies:
+    "@turf/meta" "^4.3.0"
+
+"@turf/meta@^4.3.0":
+  version "4.3.0"
+  resolved "https://registry.npmjs.org/@turf/meta/-/meta-4.3.0.tgz#eb11dd2c2511524258123767fe0f5c3bd963e8d7"
+
 acorn-jsx@^3.0.1:
   version "3.0.1"
   resolved "https://registry.npmjs.org/acorn-jsx/-/acorn-jsx-3.0.1.tgz#afdf9488fb1ecefc8348f6fb22f464e32a58b36b"
@@ -441,6 +457,10 @@ pbf@^1.3.2:
     ieee754 "^1.1.6"
     resolve-protobuf-schema "^2.0.0"
 
+performance-now@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.npmjs.org/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
+
 point-geometry@0.0.0, point-geometry@^0.0.0:
   version "0.0.0"
   resolved "https://registry.npmjs.org/point-geometry/-/point-geometry-0.0.0.tgz#6fcbcad7a803b6418247dd6e49c2853c584daff7"
@@ -475,6 +495,12 @@ quote-stream@~0.0.0:
   dependencies:
     minimist "0.0.8"
     through2 "~0.4.1"
+
+raf@^3.3.2:
+  version "3.3.2"
+  resolved "https://registry.npmjs.org/raf/-/raf-3.3.2.tgz#0c13be0b5b49b46f76d6669248d527cf2b02fe27"
+  dependencies:
+    performance-now "^2.1.0"
 
 readable-stream@^2.1.5, readable-stream@^2.2.2:
   version "2.2.9"

@@ -13,6 +13,10 @@ class MapGL extends React.Component {
       PropTypes.object
     ]).isRequired,
     accessToken: PropTypes.string.isRequired,
+    bbox: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.object
+    ]),
     center: PropTypes.arrayOf(PropTypes.number),
     zoom: PropTypes.array,
     minZoom: PropTypes.number,
@@ -90,22 +94,27 @@ class MapGL extends React.Component {
   componentDidMount () {
     loadMapbox({loadCSS: this.props.loadCSS})
       .then((mapboxgl) => {
-        this.bindEvents(this.createMap(mapboxgl))
+        if (!this.unmounted) {
+          this.bindEvents(this.createMap(mapboxgl))
+        }
       })
       .catch((err) => {
-        console.warn(err)
-        this.setState({unsupported: true})
+        if (!this.unmounted) {
+          console.warn(err)
+          this.setState({unsupported: true})
+        }
       })
   }
 
   componentWillUnmount () {
     const {map} = this.state
 
+    this.unmounted = true
     if (map) {
       map.off()
 
       // NOTE: We need to defer removing the map to after all children have unmounted
-      setTimeout(() => {
+      process.nextTick(() => {
         map.remove()
       })
     }
@@ -146,10 +155,16 @@ class MapGL extends React.Component {
     )
 
     if (didZoomUpdate || didCenterUpdate || didBearingUpdate) {
-      map[this.props.movingMethod]({
+      map[nextProps.movingMethod]({
         zoom: didZoomUpdate ? nextProps.zoom : zoom,
         center: didCenterUpdate ? nextProps.center : center,
         bearing: didBearingUpdate ? nextProps.bearing : bearing
+      })
+    }
+
+    if (!_.isEqual(this.props.bbox, nextProps.bbox)) {
+      map.fitBounds(nextProps.bbox, {
+        padding: nextProps.padding || 0
       })
     }
 

@@ -41,7 +41,7 @@ class Layer extends React.Component {
     let options = {}
 
     // Grab basic options from props.
-    _.extend(options, _.pick(this.props, [
+    _.extend(options, _.omitBy(_.pick(this.props, [
       'id',
       'type',
       'metadata',
@@ -50,7 +50,7 @@ class Layer extends React.Component {
       'filter',
       'layout',
       'paint'
-    ]))
+    ]), _.isNil))
 
     // Grab 'ref' from 'copy'.
     if (this.props.copy) {

@@ -96,7 +96,7 @@ class Source extends React.Component {
     let options = {}
 
     // Grab basic options from props.
-    _.extend(options, _.pick(props, [
+    _.extend(options, _.omitBy(_.pick(props, [
       'type',
       'data',
       'url',
@@ -112,7 +112,7 @@ class Source extends React.Component {
       'clusterMaxZoom',
       'canvas',
       'animate'
-    ]))
+    ]), _.isNil))
 
     // Add the source.
     map.addSource(props.id, options)

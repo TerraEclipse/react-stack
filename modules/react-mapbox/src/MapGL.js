@@ -79,22 +79,26 @@ class MapGL extends React.Component {
   }
 
   static childContextTypes = {
-    map: PropTypes.object
+    map: PropTypes.object,
+    mapboxgl: PropTypes.object
   }
 
   state = {
     unsupported: false,
-    map: null
+    map: null,
+    mapboxgl: null
   }
 
   getChildContext = () => ({
-    map: this.state.map
+    map: this.state.map,
+    mapboxgl: this.state.mapboxgl
   })
 
   componentDidMount () {
     loadMapbox({loadCSS: this.props.loadCSS})
       .then((mapboxgl) => {
         if (!this.unmounted) {
+          this.setState({mapboxgl: mapboxgl})
           this.bindEvents(this.createMap(mapboxgl))
         }
       })

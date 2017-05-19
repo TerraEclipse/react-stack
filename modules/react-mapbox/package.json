@@ -43,7 +43,7 @@
   "bugs": {
     "url": "https://github.com/TerraEclipse/react-stack/issues"
   },
-  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/packages/react-mapbox#readme",
+  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/modules/react-mapbox#readme",
   "keywords": [
     "react-component"
   ]

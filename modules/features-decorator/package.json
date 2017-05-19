@@ -39,7 +39,7 @@
   "bugs": {
     "url": "https://github.com/TerraEclipse/react-stack/issues"
   },
-  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/packages/features-decorator#readme",
+  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/modules/features-decorator#readme",
   "keywords": [
     "react-component"
   ]

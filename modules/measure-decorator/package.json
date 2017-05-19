@@ -40,7 +40,7 @@
   "bugs": {
     "url": "https://github.com/TerraEclipse/react-stack/issues"
   },
-  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/packages/measure-decorator#readme",
+  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/modules/measure-decorator#readme",
   "keywords": [
     "react-component"
   ]

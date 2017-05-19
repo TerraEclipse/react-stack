@@ -35,7 +35,7 @@
   "bugs": {
     "url": "https://github.com/TerraEclipse/react-stack/issues"
   },
-  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/packages/debounce-decorator#readme",
+  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/modules/debounce-decorator#readme",
   "keywords": [
     "react-component"
   ]

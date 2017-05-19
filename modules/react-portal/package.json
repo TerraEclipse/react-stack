@@ -36,7 +36,7 @@
   "bugs": {
     "url": "https://github.com/TerraEclipse/react-stack/issues"
   },
-  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/packages/react-portal#readme",
+  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/modules/react-portal#readme",
   "keywords": [
     "react-component"
   ]

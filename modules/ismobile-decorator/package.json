@@ -43,7 +43,7 @@
   "bugs": {
     "url": "https://github.com/TerraEclipse/react-stack/issues"
   },
-  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/packages/ismobile-decorator#readme",
+  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/modules/ismobile-decorator#readme",
   "keywords": [
     "react-component"
   ]

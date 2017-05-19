@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/TerraEclipse/react-stack/issues"
   },
-  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/packages/generator-react-component#readme",
+  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/modules/generator-react-component#readme",
   "keywords": [
     "yeoman-generator"
   ]

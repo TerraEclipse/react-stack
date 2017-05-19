@@ -1,5 +1,5 @@
 import React from 'react'
-import isMobile, {IsMobileProvider} from './'
+import {isMobile, IsMobileProvider} from './'
 
 @isMobile
 class Story extends React.Component {

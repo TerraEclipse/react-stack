@@ -30,6 +30,7 @@ class MapGL extends React.Component {
     onResize: PropTypes.func,
     onDblClick: PropTypes.func,
     onClick: PropTypes.func,
+    onLoad: PropTypes.func,
     onStyleLoad: PropTypes.func,
     onMouseMove: PropTypes.func,
     onMoveStart: PropTypes.func,
@@ -201,17 +202,23 @@ class MapGL extends React.Component {
       interactiv: this.props.interactive
     })
 
-    map.on('style.load', (...args) => {
+    map.on('load', (...args) => {
       if (this.props.bbox) {
         map.fitBounds(this.props.bbox, {
           padding: this.props.padding || 0
         })
       }
-      if (this.props.onStyleLoad) {
-        this.props.onStyleLoad(map, ...args)
+      if (this.props.onLoad) {
+        this.props.onLoad(map, ...args)
       }
       this.setState({map})
     })
+
+    if (this.props.onStyleLoad) {
+      map.on('load', (...args) => {
+        this.props.onStyleLoad(map, ...args)
+      })
+    }
 
     return map
   }

@@ -199,7 +199,7 @@ class MapGL extends React.Component {
       attributionControl: {
         position: this.props.attributionPosition
       },
-      interactiv: this.props.interactive
+      interactive: this.props.interactive
     })
 
     map.on('load', (...args) => {

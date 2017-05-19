@@ -6,13 +6,15 @@ class Hover extends React.Component {
   static propTypes = {
     layer: PropTypes.string.isRequired,
     uid: PropTypes.string,
+    cursor: PropTypes.string,
     onHoverOver: PropTypes.func,
     onHoverOut: PropTypes.func,
     children: PropTypes.func
   }
 
   static defaultProps = {
-    uid: 'id'
+    uid: 'id',
+    cursor: 'pointer'
   }
 
   static contextTypes = {
@@ -76,6 +78,9 @@ class Hover extends React.Component {
       if (this.props.children) {
         this.setState({uids: uids, features: e.features})
       }
+      if (this.props.cursor) {
+        this.context.map.getCanvas().style.cursor = this.props.cursor
+      }
     }
   }
 
@@ -87,6 +92,9 @@ class Hover extends React.Component {
     }
     if (this.props.children) {
       this.setState({uids: [], features: []})
+    }
+    if (this.props.cursor) {
+      this.context.map.getCanvas().style.cursor = ''
     }
   }
 

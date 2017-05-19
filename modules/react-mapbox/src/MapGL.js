@@ -252,7 +252,8 @@ class MapGL extends React.Component {
     return (
       <div
         ref={(x) => { this.container = x }}
-        style={containerStyle}
+        className={`react-mapbox--container ${this.props.className || ''}`}
+        style={_.defaults(containerStyle, {position: 'relative'})}
       >
         {unsupported ? (
           this.renderUnsupported()

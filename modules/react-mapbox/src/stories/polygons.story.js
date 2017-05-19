@@ -12,6 +12,7 @@ export default function ({storiesOf, action}) {
       class Story extends React.Component {
         state = {
           activeFeature: null,
+          hoveredFeature: null,
           bbox: defaults.bbox
         }
         render () {
@@ -85,12 +86,27 @@ export default function ({storiesOf, action}) {
                   }
                 }}
                 onHoverOver={(e, feature) => {
-                  console.log('Over', feature.properties.name)
+                  this.setState({hoveredFeature: feature})
                 }}
                 onHoverOut={(e, feature) => {
-                  console.log('Out', feature.properties.name)
+                  this.setState({hoveredFeature: null})
                 }}
               />
+              {this.state.hoveredFeature ? (
+                <h2 style={{
+                  position: 'fixed',
+                  top: 20,
+                  left: 20,
+                  margin: 0,
+                  padding: 20,
+                  backgroundColor: '#333',
+                  color: '#ddd',
+                  boxShadow: '1px 1px 5px rgba(0, 0, 0, 0.3)',
+                  zIndex: 10
+                }}>
+                  {this.state.hoveredFeature.properties.name}
+                </h2>
+              ) : null}
             </MapGL>
           )
         }

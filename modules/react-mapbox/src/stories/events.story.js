@@ -4,18 +4,18 @@ import {MapGL} from '../'
 import MapEvents from '../map/MapEvents'
 import defaults from './defaults'
 
-const eventHandlers = _.mapValues(MapEvents.propTypes, (_, name) => {
-  return (e) => {
-    console.log(name, e)
-  }
-})
-
 export default function ({storiesOf, action}) {
   storiesOf('Mapbox', module).addWithInfo('Events',
     `
       Bind event handlers to map.
     `,
     () => {
+      const eventHandlers = _.mapValues(MapEvents.propTypes, (_, name) => {
+        return (e) => {
+          console.log(name, e)
+        }
+      })
+
       class Story extends React.Component {
         state = {}
         render () {
@@ -54,6 +54,7 @@ export default function ({storiesOf, action}) {
           )
         }
       }
+
       return <Story />
     }
   )

@@ -5,8 +5,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
 import loadMapbox from './util/loadMapbox'
-import MapEvents from './map/MapEvents'
-import MapOptions from './map/MapOptions'
+import MapEvents from './MapEvents'
+import MapOptions from './MapOptions'
 import Children from './Children'
 
 class MapGL extends React.Component {

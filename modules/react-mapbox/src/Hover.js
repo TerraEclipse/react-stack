@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
 import throttleRAF from '@terraeclipse/throttle-raf-decorator'
+import Children from './Children'
+import LayerEvent from './LayerEvent'
 
 class Hover extends React.Component {
   static propTypes = {
@@ -25,33 +27,6 @@ class Hover extends React.Component {
   state = {
     uids: [],
     features: []
-  }
-
-  componentDidMount () {
-    this.bindListeners(this.props)
-  }
-
-  componentWillUnmount () {
-    this.unbindListeners(this.props)
-  }
-
-  componentWillReceiveProps (nextProps) {
-    if (this.props.layer !== nextProps.layer) {
-      this.unbindListeners(this.props)
-      this.bindListeners(nextProps)
-    }
-  }
-
-  bindListeners (props) {
-    let {map} = this.context
-    map.on('mousemove', props.layer, this.handleMouseMove)
-    map.on('mouseleave', props.layer, this.handleMouseLeave)
-  }
-
-  unbindListeners (props) {
-    let {map} = this.context
-    map.off('mousemove', props.layer, this.handleMouseMove)
-    map.off('mouseleave', props.layer, this.handleMouseLeave)
   }
 
   @throttleRAF
@@ -96,11 +71,26 @@ class Hover extends React.Component {
   }
 
   render () {
-    return this.props.children
-      ? (typeof this.props.children === 'function')
-        ? this.props.children({features: this.state.features})
-        : React.Children.only(this.props.children)
-      : null
+    return (
+      <Children>
+        <LayerEvent
+          type='mousemove'
+          layer={this.props.layer}
+          onChange={this.handleMouseMove}
+        />
+        <LayerEvent
+          type='mouseleave'
+          layer={this.props.layer}
+          onChange={this.handleMouseLeave}
+        />
+        {this.props.children
+          ? (typeof this.props.children === 'function')
+            ? this.props.children({features: this.state.features})
+            : this.props.children
+          : null
+        }
+      </Children>
+    )
   }
 }
 

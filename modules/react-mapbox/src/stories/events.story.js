@@ -1,7 +1,6 @@
 import React from 'react'
 import _ from 'lodash'
-import {MapGL} from '../'
-import MapEvents from '../map/MapEvents'
+import {MapGL, MapEvents} from '../'
 import defaults from './defaults'
 
 export default function ({storiesOf, action}) {

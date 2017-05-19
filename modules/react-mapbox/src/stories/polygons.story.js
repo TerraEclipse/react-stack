@@ -16,12 +16,13 @@ export default function ({storiesOf, action}) {
           bbox: defaults.bbox
         }
         render () {
+          let {activeFeature} = this.state
           return (
             <MapGL {...defaults} bbox={this.state.bbox}>
               <InteractiveLayer
                 id='states'
-                uid='name'
-                activeUid={this.state.activeFeature && this.state.activeFeature.properties.name}
+                property='name'
+                activeProperty={activeFeature && activeFeature.properties.name}
                 source={{
                   id: 'states',
                   type: 'geojson',

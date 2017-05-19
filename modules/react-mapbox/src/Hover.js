@@ -8,7 +8,7 @@ import LayerEvent from './LayerEvent'
 class Hover extends React.Component {
   static propTypes = {
     layer: PropTypes.string.isRequired,
-    uid: PropTypes.string,
+    property: PropTypes.string,
     cursor: PropTypes.string,
     onHoverOver: PropTypes.func,
     onHoverOut: PropTypes.func,
@@ -16,7 +16,7 @@ class Hover extends React.Component {
   }
 
   static defaultProps = {
-    uid: 'id',
+    property: 'id',
     cursor: 'pointer'
   }
 
@@ -25,29 +25,29 @@ class Hover extends React.Component {
   }
 
   state = {
-    uids: [],
+    properties: [],
     features: []
   }
 
   @throttleRAF
   handleMouseMove (e) {
-    let uidPath = `properties.${this.props.uid}`
-    let uids = _.map(e.features, uidPath)
-    let over = _.difference(uids, this.state.uids)
-    let out = _.difference(this.state.uids, uids)
+    let propertyPath = `properties.${this.props.property}`
+    let properties = _.map(e.features, propertyPath)
+    let over = _.difference(properties, this.state.properties)
+    let out = _.difference(this.state.properties, properties)
     if (over.length || out.length) {
       if (out.length && this.props.onHoverOut) {
-        _.each(out, (uid) => {
-          this.props.onHoverOut(e, _.find(this.state.features, [uidPath, uid]))
+        _.each(out, (property) => {
+          this.props.onHoverOut(e, _.find(this.state.features, [propertyPath, property]))
         })
       }
       if (over.length && this.props.onHoverOver) {
-        _.each(over, (uid) => {
-          this.props.onHoverOver(e, _.find(e.features, [uidPath, uid]))
+        _.each(over, (property) => {
+          this.props.onHoverOver(e, _.find(e.features, [propertyPath, property]))
         })
       }
       if (this.props.children) {
-        this.setState({uids: uids, features: e.features})
+        this.setState({properties: properties, features: e.features})
       }
       if (this.props.cursor) {
         this.context.map.getCanvas().style.cursor = this.props.cursor
@@ -57,13 +57,13 @@ class Hover extends React.Component {
 
   @throttleRAF
   handleMouseLeave (e) {
-    if (this.state.uids && this.props.onHoverOut) {
+    if (this.state.properties && this.props.onHoverOut) {
       _.each(this.state.features, (feature) => {
         this.props.onHoverOut(e, feature)
       })
     }
     if (this.props.children) {
-      this.setState({uids: [], features: []})
+      this.setState({properties: [], features: []})
     }
     if (this.props.cursor) {
       this.context.map.getCanvas().style.cursor = ''

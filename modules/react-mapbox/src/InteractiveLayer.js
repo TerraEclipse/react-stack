@@ -6,7 +6,7 @@ import {Children, Hover, Click, Layer, Source} from './'
 class InteractiveLayer extends React.Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
-    uid: PropTypes.string,
+    property: PropTypes.string,
     source: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.object
@@ -18,7 +18,7 @@ class InteractiveLayer extends React.Component {
     hoverBorder: PropTypes.object,
     active: PropTypes.object,
     activeBorder: PropTypes.object,
-    activeUid: PropTypes.oneOfType([
+    activeProperty: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number,
       PropTypes.bool
@@ -32,14 +32,14 @@ class InteractiveLayer extends React.Component {
   }
 
   static defaultProps = {
-    uid: 'id'
+    property: 'id'
   }
 
   render () {
     let {
-      id, source, sourceLayer, uid,
+      id, source, sourceLayer, property,
       base, borders, hover, hoverBorder,
-      active, activeBorder, activeUid,
+      active, activeBorder, activeProperty,
       clickEvent, avoidDoubleClick, doubleClickSpeed,
       onClick, onHoverOver, onHoverOut
     } = this.props
@@ -86,13 +86,13 @@ class InteractiveLayer extends React.Component {
         {(hover || hoverBorder || onHoverOver || onHoverOut) ? (
           <Hover
             layer={id}
-            uid={uid}
+            property={property}
             onHoverOver={onHoverOver}
             onHoverOut={onHoverOut}
           >
             {({features}) => {
-              let hoveredUid = features.length
-                ? _.get(features[0].properties, uid)
+              let hoveredProperty = features.length
+                ? _.get(features[0].properties, property)
                 : ''
               return (
                 <Children>
@@ -104,8 +104,8 @@ class InteractiveLayer extends React.Component {
                         sourceLayer: sourceLayer
                       })}
                       filter={base.filter
-                        ? ['all', ['==', uid, hoveredUid], base.filter]
-                        : ['==', uid, hoveredUid]
+                        ? ['all', ['==', property, hoveredProperty], base.filter]
+                        : ['==', property, hoveredProperty]
                       }
                     />
                   ) : null}
@@ -118,8 +118,8 @@ class InteractiveLayer extends React.Component {
                         sourceLayer: sourceLayer
                       })}
                       filter={base.filter
-                        ? ['all', ['==', uid, hoveredUid], base.filter]
-                        : ['==', uid, hoveredUid]
+                        ? ['all', ['==', property, hoveredProperty], base.filter]
+                        : ['==', property, hoveredProperty]
                       }
                     />
                   ) : null}
@@ -137,8 +137,8 @@ class InteractiveLayer extends React.Component {
               sourceLayer: sourceLayer
             })}
             filter={base.filter
-              ? ['all', ['==', uid, activeUid || ''], base.filter]
-              : ['==', uid, activeUid || '']
+              ? ['all', ['==', property, activeProperty || ''], base.filter]
+              : ['==', property, activeProperty || '']
             }
           />
         ) : null}
@@ -151,8 +151,8 @@ class InteractiveLayer extends React.Component {
               sourceLayer: sourceLayer
             })}
             filter={base.filter
-              ? ['all', ['==', uid, activeUid || ''], base.filter]
-              : ['==', uid, activeUid || '']
+              ? ['all', ['==', property, activeProperty || ''], base.filter]
+              : ['==', property, activeProperty || '']
             }
           />
         ) : null}

@@ -52,7 +52,7 @@ export default function ({storiesOf, action}) {
           <Hover layer='states-fill' property='name'>
             {({features}) => (
               <Layer
-                id='stats-hover'
+                id='states-hover'
                 source='states'
                 type='fill'
                 paint={{

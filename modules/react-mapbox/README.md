@@ -31,7 +31,7 @@ Quick Example
 -------------
 
 This renders a map, adds a source and layer to the map, and changes the fill
-of polygon features when they are hovered.
+of polygon features when they are hovered. See it in action [in the storybook](https://terraeclipse.github.io/react-stack/?selectedKind=Mapbox&selectedStory=Readme%20Example).
 
 ```js
 import React from 'react'
@@ -45,7 +45,7 @@ const mapOptions = {
   padding: 30
 }
 
-// Function component, our example.
+// Functional component, our example.
 const Example = (props) => (
   <MapGL {...mapOptions}>
     {/* Source to be used by layers (U.S. state polygons) */}
@@ -90,7 +90,7 @@ const Example = (props) => (
     <Hover layer='states-fill' property='name'>
       {({features}) => (
         <Layer
-          id='stats-hover'
+          id='states-hover'
           source='states'
           type='fill'
           paint={{

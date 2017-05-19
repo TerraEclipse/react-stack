@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
+import throttleRAF from '@terraeclipse/throttle-raf-decorator'
 
 class Hover extends React.Component {
   static propTypes = {
@@ -24,12 +25,6 @@ class Hover extends React.Component {
   state = {
     uids: [],
     features: []
-  }
-
-  constructor () {
-    super()
-    this.handleMouseMove = this.handleMouseMove.bind(this)
-    this.handleMouseLeave = this.handleMouseLeave.bind(this)
   }
 
   componentDidMount () {
@@ -59,6 +54,7 @@ class Hover extends React.Component {
     map.off('mouseleave', props.layer, this.handleMouseLeave)
   }
 
+  @throttleRAF
   handleMouseMove (e) {
     let uidPath = `properties.${this.props.uid}`
     let uids = _.map(e.features, uidPath)
@@ -84,6 +80,7 @@ class Hover extends React.Component {
     }
   }
 
+  @throttleRAF
   handleMouseLeave (e) {
     if (this.state.uids && this.props.onHoverOut) {
       _.each(this.state.features, (feature) => {

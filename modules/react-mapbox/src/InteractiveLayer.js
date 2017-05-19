@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import _ from 'lodash'
 import {Children, Hover, Click, Layer, Source} from './'
 
-class Polygons extends React.Component {
+class InteractiveLayer extends React.Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
     uid: PropTypes.string,
@@ -158,4 +158,4 @@ class Polygons extends React.Component {
   }
 }
 
-export default Polygons
+export default InteractiveLayer

@@ -20,7 +20,15 @@ class MapOptions extends React.Component {
     interactive: PropTypes.bool,
     hash: PropTypes.bool,
     preserveDrawingBuffer: PropTypes.bool,
+
+    // Interaction handlers.
     scrollZoom: PropTypes.bool,
+    boxZoom: PropTypes.bool,
+    dragRotate: PropTypes.bool,
+    dragPan: PropTypes.bool,
+    keyboard: PropTypes.bool,
+    doubleClickZoom: PropTypes.bool,
+    touchZoomRotate: PropTypes.bool,
 
     // Custom options.
     bbox: PropTypes.oneOfType([
@@ -90,6 +98,13 @@ class MapOptions extends React.Component {
       return null
     }
 
+    this.updatePosition(nextProps)
+    this.updateStyle(nextProps)
+    this.updateInteractionHandlers(nextProps)
+  }
+
+  updatePosition (nextProps) {
+    const {map} = this.context
     const center = map.getCenter()
     const zoom = map.getZoom()
     const bearing = map.getBearing()
@@ -98,14 +113,12 @@ class MapOptions extends React.Component {
       this.props.zoom !== nextProps.zoom &&
       nextProps.zoom !== zoom
     )
-
     const didCenterUpdate = (
       this.props.center !== nextProps.center && (
         nextProps.center[0] !== center.lng ||
         nextProps.center[1] !== center.lat
       )
     )
-
     const didBearingUpdate = (
       this.props.bearing !== nextProps.bearing &&
       nextProps.bearing !== bearing
@@ -124,10 +137,36 @@ class MapOptions extends React.Component {
         padding: nextProps.padding || 0
       })
     }
+  }
 
+  updateStyle (nextProps) {
+    const {map} = this.context
     if (!_.isEqual(this.props.style, nextProps.style)) {
       map.setStyle(nextProps.style)
     }
+  }
+
+  updateInteractionHandlers (nextProps) {
+    const {map} = this.context
+    const handlers = [
+      'scrollZoom',
+      'boxZoom',
+      'dragRotate',
+      'dragPan',
+      'keyboard',
+      'doubleClickZoom',
+      'touchZoomRotate'
+    ]
+
+    _.each(handlers, (handler) => {
+      if (this.props[handler] !== nextProps[handler]) {
+        if (nextProps[handler]) {
+          map[handler].enable()
+        } else {
+          map[handler].disable()
+        }
+      }
+    })
   }
 
   render () {

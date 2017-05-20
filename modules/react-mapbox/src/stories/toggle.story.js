@@ -1,6 +1,6 @@
 import React from 'react'
 import _ from 'lodash'
-import {MapGL, Children, Source, Layer, Toggle} from '../'
+import {MapGL, Source, Layer, Toggle} from '../'
 import Overlay from './components/Overlay'
 import Checkbox from './components/Checkbox'
 import defaults from './defaults'
@@ -43,23 +43,21 @@ export default function ({storiesOf, action}) {
               />
               <Toggle layer='states-fill' property='name' multiple={this.state.multiple}>
                 {({features}) => (
-                  <Children>
-                    <Layer
-                      id='states-toggled'
-                      source='states'
-                      type='fill'
-                      paint={{
-                        'fill-color': '#ff0e0e',
-                        'fill-opacity': 0.4
-                      }}
-                      filter={[
-                        'in',
-                        'name',
-                        '',
-                        ...(_.map(features, 'properties.name'))
-                      ]}
-                    />
-                  </Children>
+                  <Layer
+                    id='states-toggled'
+                    source='states'
+                    type='fill'
+                    paint={{
+                      'fill-color': '#ff0e0e',
+                      'fill-opacity': 0.4
+                    }}
+                    filter={[
+                      'in',
+                      'name',
+                      '',
+                      ...(_.map(features, 'properties.name'))
+                    ]}
+                  />
                 )}
               </Toggle>
               <Overlay>

@@ -1,6 +1,8 @@
 import React from 'react'
 import _ from 'lodash'
 import {MapGL, MapEvents} from '../'
+import Overlay from './components/Overlay'
+import Checkbox from './components/Checkbox'
 import defaults from './defaults'
 
 export default function ({storiesOf, action}) {
@@ -26,29 +28,18 @@ export default function ({storiesOf, action}) {
                   return this.state[name]
                 })}
               />
-              <div style={{
-                position: 'fixed',
-                top: 20,
-                left: 20,
-                padding: 5,
-                backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                boxShadow: '1px 1px 3px rgba(0, 0, 0, 0.2)'
-              }}>
+              <Overlay>
                 {_.map(eventHandlers, (_, name) => (
-                  <label key={name} style={{
-                    display: 'block',
-                    padding: 5,
-                    color: this.state[name] ? 'lime' : 'white'
-                  }}>
-                    <input
-                      type='checkbox'
-                      onChange={(e) => {
-                        this.setState({[name]: e.currentTarget.checked})
-                      }}
-                    /> {name}
-                  </label>
+                  <Checkbox
+                    key={name}
+                    name={name}
+                    onChange={(e) => {
+                      this.setState({[name]: e.currentTarget.checked})
+                    }}
+                    checked={this.state[name] || false}
+                  />
                 ))}
-              </div>
+              </Overlay>
             </div>
           )
         }

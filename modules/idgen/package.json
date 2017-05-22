@@ -1,0 +1,43 @@
+{
+  "name": "@terraeclipse/idgen",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "Generate unique ids (browser friendly).",
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "es",
+    "lib"
+  ],
+  "scripts": {
+    "prepublish": "yarn run build",
+    "build": "../../tools/build-module",
+    "clean": "../../tools/clean-module",
+    "test": "../../tools/test-module",
+    "coverage": "../../tools/test-module --coverage"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": "^15.5.4",
+    "prop-types": "15.x"
+  },
+  "devDependencies": {},
+  "author": "Brian Link",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TerraEclipse/react-stack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TerraEclipse/react-stack/issues"
+  },
+  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/modules/idgen#readme",
+  "keywords": [
+    "react-component"
+  ]
+}

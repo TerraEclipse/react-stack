@@ -13,7 +13,7 @@
   "files": [
     "es",
     "lib",
-    "short-uuid"
+    "util"
   ],
   "scripts": {
     "prepublish": "yarn run build",

@@ -1,5 +1,5 @@
 // @todo Once short-uuid gets is npm build act together, switch to that.
-import short from '../short-uuid/dist/short-uuid'
+import short from '../util/short-uuid'
 
 const translator = short()
 

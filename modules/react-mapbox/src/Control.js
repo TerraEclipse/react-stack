@@ -49,10 +49,7 @@ class Control extends React.Component {
 
   componentWillReceiveProps (nextProps) {
     let {map} = this.context
-    if (
-      (this.props.position !== nextProps.position) ||
-      !_.isEqual(this.props.options, nextProps.options)
-    ) {
+    if (!_.isEqual(this.props, nextProps)) {
       map.removeControl(this.control)
       this.control = this.createControl(nextProps)
       map.addControl(this.control, nextProps.position)

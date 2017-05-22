@@ -12,7 +12,8 @@
   "module": "es/index.js",
   "files": [
     "es",
-    "lib"
+    "lib",
+    "short-uuid/dist"
   ],
   "scripts": {
     "prepublish": "yarn run build",

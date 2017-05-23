@@ -1,6 +1,5 @@
 import './styles/popup.story.css'
 import React from 'react'
-import _ from 'lodash'
 import {MapGL, Layer, Toggle, Hover, Popup} from '../'
 import defaults from './defaults'
 

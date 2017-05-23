@@ -2,3 +2,17 @@
 # yarn lockfile v1
 
 
+any-base@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/any-base/-/any-base-1.0.1.tgz#feace48fda1aa42f2b7546f2caae4cc26704a3de"
+
+short-uuid@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.npmjs.org/short-uuid/-/short-uuid-2.3.3.tgz#7a934001fd0c06d48202bfe9e9b11b2c7376cdf7"
+  dependencies:
+    any-base "^1.0.0"
+    uuid "^3.0.0"
+
+uuid@^3.0.0:
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/uuid/-/uuid-3.0.1.tgz#6544bba2dfda8c1cf17e629a3a305e2bb1fee6c1"

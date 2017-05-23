@@ -9,7 +9,8 @@ export default function Overlay (props) {
       padding: 5,
       backgroundColor: 'rgba(0, 0, 0, 0.7)',
       boxShadow: '1px 1px 3px rgba(0, 0, 0, 0.2)',
-      zIndex: 10
+      zIndex: 10,
+      color: '#fff'
     }}>
       {props.children}
     </div>

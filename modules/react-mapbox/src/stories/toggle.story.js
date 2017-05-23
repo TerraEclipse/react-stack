@@ -41,7 +41,12 @@ export default function ({storiesOf, action}) {
                   'line-width': 2
                 }}
               />
-              <Toggle layer='states-fill' property='name' multiple={this.state.multiple}>
+              <Toggle
+                layer='states-fill'
+                property='name'
+                multiple={this.state.multiple}
+                closeOnClickOutside={false}
+              >
                 {({features}) => (
                   <Layer
                     id='states-toggled'

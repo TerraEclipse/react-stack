@@ -82,8 +82,7 @@ export default function ({storiesOf, action}) {
                         backgroundSize: 'cover',
                         borderRadius: '50%',
                         cursor: 'pointer',
-                        transform: 'translate(-50%, -50%)',
-                        transition: 'all 300ms ease-out'
+                        transform: 'translate(-50%, -50%)'
                       }}
                       onClick={window.alert.bind(window, feature.properties.message)}
                     />

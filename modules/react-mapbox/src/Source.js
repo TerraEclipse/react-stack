@@ -4,7 +4,7 @@ import _ from 'lodash'
 
 class Source extends React.Component {
   static propTypes = {
-    id: PropTypes.string,
+    id: PropTypes.string.isRequired,
     type: PropTypes.oneOf([
       'canvas',
       'geojson',
@@ -12,7 +12,7 @@ class Source extends React.Component {
       'raster',
       'vector',
       'video'
-    ]),
+    ]).isRequired,
     data: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.object

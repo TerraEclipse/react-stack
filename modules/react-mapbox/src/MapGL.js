@@ -67,7 +67,7 @@ class MapGL extends React.Component {
       map.off()
       // NOTE: We need to defer removing the map to after all
       // children have unmounted
-      process.nextTick(() => {
+      setImmediate(() => {
         map.remove()
       })
     }

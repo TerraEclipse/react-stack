@@ -12,12 +12,14 @@ class Toggle extends React.Component {
     clickEvent: PropTypes.string,
     avoidDoubleClick: PropTypes.bool,
     doubleClickSpeed: PropTypes.number,
+    closeOnClickOutside: PropTypes.bool,
     children: PropTypes.func
   }
 
   static defaultProps = {
     property: 'id',
-    multiple: false
+    multiple: false,
+    closeOnClickOutside: true
   }
 
   static contextTypes = {
@@ -30,7 +32,9 @@ class Toggle extends React.Component {
 
   constructor () {
     super()
-    this.handleClick = this.handleClick.bind(this)
+    this.handleClickLayer = this.handleClickLayer.bind(this)
+    this.handleClickMap = this.handleClickMap.bind(this)
+    this.toggleFeature = this.toggleFeature.bind(this)
   }
 
   componentWillReceiveProps (nextProps) {
@@ -47,44 +51,85 @@ class Toggle extends React.Component {
     }
   }
 
-  handleClick (e) {
-    let propertyPath = `properties.${this.props.property}`
-    let features = this.state.features
+  handleClickLayer (e) {
+    if (this.props.multiple) {
+      _.each(e.features, this.toggleFeature)
+    } else if (e.features.length) {
+      this.toggleFeature(e.features[0])
+    }
+  }
+
+  handleClickMap (e) {
+    let {map} = this.context
+    let features = map.queryRenderedFeatures(e.point, {
+      layers: [this.props.layer]
+    })
+    if (!features.length) {
+      if (this.props.closeOnClickOutside) {
+        this.setState({features: {}})
+      }
+    } else if (this.props.multiple) {
+      _.each(features, this.toggleFeature)
+    } else {
+      this.toggleFeature(features[0])
+    }
+  }
+
+  toggleFeature (feature) {
+    let {features} = this.state
+    let property = this.getProperty(feature)
 
     if (this.props.multiple) {
-      _.each(e.features, (feature) => {
-        let property = _.get(feature, propertyPath)
-        if (this.state.features[property]) {
-          delete features[property]
-        } else {
-          features[property] = feature
-        }
-      })
+      if (this.state.features[property]) {
+        delete features[property]
+      } else {
+        features[property] = feature
+      }
     } else {
-      let property = _.get(e.features[0], propertyPath)
       if (features[property]) {
         features = {}
       } else {
-        features = {[property]: e.features[0]}
+        features = {[property]: feature}
       }
     }
 
     this.setState({features})
   }
 
+  getProperty (feature) {
+    let propertyPath = `properties.${this.props.property}`
+    let property = _.get(feature, propertyPath)
+    if (typeof property !== 'undefined') {
+      return property
+    } else {
+      throw new Error('Could not find property for <Toggle> feature')
+    }
+  }
+
   render () {
     return (
       <Children>
-        <Click
-          layer={this.props.layer}
-          event={this.props.clickEvent}
-          avoidDoubleClick={this.props.avoidDoubleClick}
-          doubleClickSpeed={this.props.doubleClickSpeed}
-          onClick={this.handleClick}
-        />
+        {this.props.closeOnClickOutside ? (
+          <Click
+            event={this.props.clickEvent}
+            avoidDoubleClick={this.props.avoidDoubleClick}
+            doubleClickSpeed={this.props.doubleClickSpeed}
+            onClick={this.handleClickMap}
+          />
+        ) : (
+          <Click
+            layer={this.props.layer}
+            event={this.props.clickEvent}
+            avoidDoubleClick={this.props.avoidDoubleClick}
+            doubleClickSpeed={this.props.doubleClickSpeed}
+            onClick={this.handleClickLayer}
+          />
+        )}
         {this.props.children
           ? (typeof this.props.children === 'function')
-            ? this.props.children({features: _.values(this.state.features)})
+            ? !_.isEmpty(this.state.features)
+              ? this.props.children({features: _.values(this.state.features)})
+              : null
             : this.props.children
           : null
         }

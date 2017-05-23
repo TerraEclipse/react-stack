@@ -58,7 +58,7 @@ class Layer extends React.Component {
 
     // Check if we have a source id or object.
     if (_.isPlainObject(this.props.source)) {
-      options.source = this.props.source.id
+      options.source = this.props.source.id || `${this.props.id}-source`
     } else {
       options.source = this.props.source
     }
@@ -105,7 +105,7 @@ class Layer extends React.Component {
   render () {
     // Render our source, or nothing.
     return _.isPlainObject(this.props.source)
-      ? <Source {...this.props.source} />
+      ? <Source id={`${this.props.id}-source`} {...this.props.source} />
       : null
   }
 }

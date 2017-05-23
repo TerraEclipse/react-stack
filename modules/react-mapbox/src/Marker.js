@@ -48,7 +48,7 @@ class Marker extends React.Component {
 
   componentWillReceiveProps (nextProps) {
     if (!_.isEqual(this.props.coordinates, nextProps.coordinates)) {
-      this.marker.setLngLat(this.props.coordinates)
+      this.marker.setLngLat(nextProps.coordinates)
     }
     if (!_.isEqual(this.props.offset, nextProps.offset)) {
       this.removeMarker()
@@ -61,9 +61,9 @@ class Marker extends React.Component {
 
   addMarker (props) {
     let {map, mapboxgl} = this.context
-    this.marker = new mapboxgl.Marker(this.el, {offset: this.props.offset})
-    if (this.props.coordinates) {
-      this.marker.setLngLat(this.props.coordinates)
+    this.marker = new mapboxgl.Marker(this.el, {offset: props.offset})
+    if (props.coordinates) {
+      this.marker.setLngLat(props.coordinates)
     }
     this.marker.addTo(map)
   }

@@ -1,6 +1,6 @@
 {
   "name": "@terraeclipse/react-loading",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publishConfig": {
     "access": "public"
   },
@@ -25,9 +25,9 @@
     "@terraeclipse/react-icon": "^2.0.4"
   },
   "peerDependencies": {
+    "classnames": "^2.2.5",
     "prop-types": "15.x",
-    "react": "^15.5.4",
-    "classnames": "^2.2.5"
+    "react": "^15.5.4"
   },
   "devDependencies": {
     "@terraeclipse/react-icon": "^2.0.4",

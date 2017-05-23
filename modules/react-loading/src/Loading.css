@@ -1,0 +1,24 @@
+.react-loading {
+  display: inline-block;
+  text-align: center;
+}
+
+.react-loading .icon {
+  font-size: 4em;
+}
+
+.react-loading .react-loading--text {
+  margin-top: 1em;
+  text-transform: uppercase;
+}
+
+
+.react-loading--inline .icon {
+  font-size: 1em;
+}
+
+.react-loading--inline .react-loading--text {
+  display: inline-block;
+  margin-top: 0;
+  margin-left: 0.5em;
+}

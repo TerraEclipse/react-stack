@@ -1,0 +1,49 @@
+{
+  "name": "@terraeclipse/react-loading",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "Loading",
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "es",
+    "lib"
+  ],
+  "scripts": {
+    "prepublish": "yarn run build",
+    "build": "../../tools/build-module",
+    "clean": "../../tools/clean-module",
+    "test": "../../tools/test-module",
+    "coverage": "../../tools/test-module --coverage"
+  },
+  "dependencies": {
+    "@terraeclipse/react-icon": "^2.0.4"
+  },
+  "peerDependencies": {
+    "prop-types": "15.x",
+    "react": "^15.5.4",
+    "classnames": "^2.2.5"
+  },
+  "devDependencies": {
+    "@terraeclipse/react-icon": "^2.0.4",
+    "classnames": "^2.2.5"
+  },
+  "author": "Nick Badagliacca",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TerraEclipse/react-stack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TerraEclipse/react-stack/issues"
+  },
+  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/modules/react-loading#readme",
+  "keywords": [
+    "react-component"
+  ]
+}

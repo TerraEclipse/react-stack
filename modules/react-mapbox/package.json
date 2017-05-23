@@ -22,7 +22,8 @@
     "coverage": "../../tools/test-module --coverage"
   },
   "dependencies": {
-    "@terraeclipse/throttle-raf-decorator": "^1.0.3"
+    "@terraeclipse/throttle-raf-decorator": "^1.0.3",
+    "@turf/bbox": "^4.3.0"
   },
   "peerDependencies": {
     "lodash": "^4.17.4",
@@ -31,7 +32,6 @@
     "react": "^15.5.4"
   },
   "devDependencies": {
-    "@turf/bbox": "^4.3.0",
     "mapbox-gl": "^0.37.0"
   },
   "author": "Brian Link",

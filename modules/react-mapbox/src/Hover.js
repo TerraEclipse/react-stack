@@ -85,9 +85,7 @@ class Hover extends React.Component {
         />
         {this.props.children
           ? (typeof this.props.children === 'function')
-            ? this.state.features.length
-              ? this.props.children({features: this.state.features})
-              : null
+            ? this.props.children({features: this.state.features})
             : this.props.children
           : null
         }

@@ -1,15 +1,14 @@
 import './WithSource.css'
 import React from 'react'
 import PropTypes from 'prop-types'
-import SyntaxHighlighter, {registerLanguage} from 'react-syntax-highlighter/dist/light'
-import js from 'react-syntax-highlighter/dist/languages/javascript'
-import style from 'react-syntax-highlighter/dist/styles/tomorrow'
+import _ from 'lodash'
 
-registerLanguage('javascript', js)
+import 'prismjs/themes/prism.css'
 
 class WithSource extends React.Component {
   static propTypes = {
     source: PropTypes.string,
+    sources: PropTypes.object,
     children: PropTypes.node
   }
 
@@ -33,16 +32,17 @@ class WithSource extends React.Component {
         <div className='example'>
           {this.props.children}
         </div>
-        <div className='source'>
-          <SyntaxHighlighter
-            language='javascript'
-            style={style}
-            lineNumberStyle={{opacity: 0.35}}
-            showLineNumbers
-          >
-            {this.props.source}
-          </SyntaxHighlighter>
-        </div>
+        {this.props.source ? (
+          <div className='source'>
+            <pre dangerouslySetInnerHTML={{__html: this.props.source}} />
+          </div>
+        ) : null}
+        {this.props.sources ? _.map(this.props.sources, (source, name) => (
+          <div key={name} className='source'>
+            <h4>{name}</h4>
+            <pre dangerouslySetInnerHTML={{__html: this.props.source}} />
+          </div>
+        )) : null}
       </div>
     )
   }

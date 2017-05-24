@@ -135,9 +135,7 @@ class Toggle extends React.Component {
         )}
         {this.props.children
           ? (typeof this.props.children === 'function')
-            ? !_.isEmpty(this.state.features)
-              ? this.props.children({features: _.values(this.state.features)})
-              : null
+            ? this.props.children({features: _.values(this.state.features)})
             : this.props.children
           : null
         }

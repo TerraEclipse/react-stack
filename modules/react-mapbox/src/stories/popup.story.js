@@ -1,7 +1,7 @@
 import React from 'react'
 import WithSource from './components/WithSource'
 import Story from './popup.story.source'
-import source from '!!raw-loader!./popup.story.source' // eslint-disable-line
+import source from '!!prismjs?lang=jsx!./popup.story.source' // eslint-disable-line
 
 export default function ({storiesOf, action}) {
   storiesOf('Mapbox', module).add('Popup', () => (

@@ -1,4 +1,4 @@
-import './styles/popup.story.css'
+import './popup.story.css'
 import React from 'react'
 import {MapGL, Layer, Toggle, Hover, Popup} from '../'
 import {defaults} from './_utils'
@@ -81,7 +81,7 @@ class Story extends React.Component {
         />
         <Hover layer='features' />
         <Toggle layer='features'>
-          {({features: [feature]}) => (
+          {({features: [feature]}) => (feature ? (
             <Popup
               coordinates={feature.geometry.coordinates}
               text={feature.properties.text || null}
@@ -96,7 +96,7 @@ class Story extends React.Component {
                   : null
               }
             </Popup>
-          )}
+          ) : null)}
         </Toggle>
       </MapGL>
     )

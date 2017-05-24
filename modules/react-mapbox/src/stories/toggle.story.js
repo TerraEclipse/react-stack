@@ -1,7 +1,7 @@
 import React from 'react'
 import WithSource from './components/WithSource'
 import Story from './toggle.story.source'
-import source from '!!raw-loader!./toggle.story.source' // eslint-disable-line
+import source from '!!prismjs?lang=jsx!./toggle.story.source' // eslint-disable-line
 
 export default function ({storiesOf, action}) {
   storiesOf('Mapbox', module).add('Toggle', () => (

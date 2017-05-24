@@ -1,7 +1,7 @@
 import React from 'react'
 import WithSource from './components/WithSource'
 import Story from './polygons.story.source'
-import source from '!!raw-loader!./polygons.story.source' // eslint-disable-line
+import source from '!!prismjs?lang=jsx!./polygons.story.source' // eslint-disable-line
 
 export default function ({storiesOf, action}) {
   storiesOf('Mapbox', module).add('Interactive Polygons', () => (

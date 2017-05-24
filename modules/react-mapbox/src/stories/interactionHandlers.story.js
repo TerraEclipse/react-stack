@@ -1,7 +1,7 @@
 import React from 'react'
 import WithSource from './components/WithSource'
 import Story from './interactionHandlers.story.source'
-import source from '!!raw-loader!./interactionHandlers.story.source' // eslint-disable-line
+import source from '!!prismjs?lang=jsx!./interactionHandlers.story.source' // eslint-disable-line
 
 export default function ({storiesOf, action}) {
   storiesOf('Mapbox', module).add('Interaction Handlers', () => (

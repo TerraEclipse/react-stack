@@ -93,10 +93,12 @@ class MapGL extends React.Component {
 
     // On map load, trigger events and set state.
     map.on('load', (...args) => {
-      if (this.props.onLoad) {
-        this.props.onLoad(...args)
+      if (!this.unmounted) {
+        if (this.props.onLoad) {
+          this.props.onLoad(...args)
+        }
+        this.setState({map})
       }
-      this.setState({map})
     })
 
     // Optionally handle style.load.

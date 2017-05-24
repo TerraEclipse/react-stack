@@ -1,7 +1,7 @@
 import React from 'react'
 import WithSource from './components/WithSource'
 import Story from './basic.story.source'
-import source from '!!raw-loader!./basic.story.source' // eslint-disable-line
+import source from '!!prismjs?lang=jsx!./basic.story.source' // eslint-disable-line
 
 export default function ({storiesOf, action}) {
   storiesOf('Mapbox', module).add('Basic', () => (

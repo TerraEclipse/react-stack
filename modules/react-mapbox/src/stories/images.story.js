@@ -1,7 +1,7 @@
 import React from 'react'
 import WithSource from './components/WithSource'
 import Story from './images.story.source'
-import source from '!!raw-loader!./images.story.source' // eslint-disable-line
+import source from '!!prismjs?lang=jsx!./images.story.source' // eslint-disable-line
 
 export default function ({storiesOf, action}) {
   storiesOf('Mapbox', module).add('Images', () => (

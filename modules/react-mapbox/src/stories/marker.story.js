@@ -1,6 +1,6 @@
 import React from 'react'
 import {MapGL, Marker} from '../'
-import defaults from './defaults'
+import {defaults} from './_utils'
 import Overlay from './components/Overlay'
 
 export default function ({storiesOf, action}) {
@@ -82,9 +82,10 @@ export default function ({storiesOf, action}) {
                         backgroundSize: 'cover',
                         borderRadius: '50%',
                         cursor: 'pointer',
-                        transform: 'translate(-50%, -50%)'
+                        transform: 'translate(-50%, -50%)',
+                        transition: 'all 500ms ease-out'
                       }}
-                      onClick={window.alert.bind(window, feature.properties.message)}
+                      onClick={() => action('click')(feature.properties.message)}
                     />
                   </Marker>
                 )

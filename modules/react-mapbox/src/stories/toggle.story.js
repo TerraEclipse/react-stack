@@ -3,7 +3,7 @@ import _ from 'lodash'
 import {MapGL, Source, Layer, Toggle} from '../'
 import Overlay from './components/Overlay'
 import Checkbox from './components/Checkbox'
-import defaults from './defaults'
+import {defaults} from './_utils'
 
 export default function ({storiesOf, action}) {
   storiesOf('Mapbox', module).addWithInfo('Toggle Features',

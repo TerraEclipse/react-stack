@@ -3,7 +3,7 @@ import _ from 'lodash'
 import {MapGL} from '../'
 import Overlay from './components/Overlay'
 import Checkbox from './components/Checkbox'
-import defaults from './defaults'
+import {defaults} from './_utils'
 
 export default function ({storiesOf, action}) {
   storiesOf('Mapbox', module).addWithInfo('Interaction Handlers',
@@ -34,6 +34,7 @@ export default function ({storiesOf, action}) {
                     key={name}
                     name={name}
                     onChange={(e) => {
+                      action(name)(e.currentTarget.checked ? 'Enabled' : 'Disabled')
                       this.setState({[name]: e.currentTarget.checked})
                     }}
                     checked={checked}

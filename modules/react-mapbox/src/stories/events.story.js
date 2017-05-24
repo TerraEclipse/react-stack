@@ -3,7 +3,7 @@ import _ from 'lodash'
 import {MapGL, MapEvents} from '../'
 import Overlay from './components/Overlay'
 import Checkbox from './components/Checkbox'
-import defaults from './defaults'
+import {defaults, sanitizeMapEvent} from './_utils'
 
 export default function ({storiesOf, action}) {
   storiesOf('Mapbox', module).addWithInfo('Events',
@@ -11,9 +11,10 @@ export default function ({storiesOf, action}) {
       Bind event handlers to map.
     `,
     () => {
-      const eventHandlers = _.mapValues(MapEvents.propTypes, (_, name) => {
+      const eventHandlers = _.mapValues(MapEvents.propTypes, (t, name) => {
         return (e) => {
-          console.log(name, e)
+          action(name)(sanitizeMapEvent(e))
+          console.log(e)
         }
       })
 

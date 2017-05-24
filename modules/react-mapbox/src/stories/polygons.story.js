@@ -1,7 +1,7 @@
 import React from 'react'
 import bbox from '@turf/bbox'
 import {MapGL, InteractiveLayer} from '../'
-import defaults from './defaults'
+import {defaults} from './_utils'
 
 export default function ({storiesOf, action}) {
   storiesOf('Mapbox', module).addWithInfo('Interactive Polygons',

@@ -1,6 +1,6 @@
 import React from 'react'
 import {MapGL, Source, Layer, Hover} from '../'
-import defaults from './defaults'
+import {defaults} from './_utils'
 
 export default function ({storiesOf, action}) {
   storiesOf('Mapbox', module).addWithInfo('Readme Example',

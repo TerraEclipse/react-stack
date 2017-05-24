@@ -1,7 +1,7 @@
 import './styles/popup.story.css'
 import React from 'react'
 import {MapGL, Layer, Toggle, Hover, Popup} from '../'
-import defaults from './defaults'
+import {defaults} from './_utils'
 
 export default function ({storiesOf, action}) {
   storiesOf('Mapbox', module).addWithInfo('Popup',

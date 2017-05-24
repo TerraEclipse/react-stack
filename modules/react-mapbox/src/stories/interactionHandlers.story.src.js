@@ -1,3 +1,9 @@
+/**
+ * Mapbox - Interaction Handlers
+ *
+ * ## Turn Map Interaction Handlers On/Off
+ * Toggle any of the map interaction handlers.
+ */
 import React from 'react'
 import _ from 'lodash'
 import {action} from '@kadira/storybook'

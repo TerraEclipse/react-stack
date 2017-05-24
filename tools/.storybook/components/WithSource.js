@@ -1,14 +1,14 @@
 import './WithSource.css'
 import React from 'react'
 import PropTypes from 'prop-types'
-import _ from 'lodash'
+import ReactMarkdown from 'react-markdown'
 
 import 'prismjs/themes/prism.css'
 
 class WithSource extends React.Component {
   static propTypes = {
+    description: PropTypes.string,
     source: PropTypes.string,
-    sources: PropTypes.object,
     children: PropTypes.node
   }
 
@@ -23,13 +23,10 @@ class WithSource extends React.Component {
   render () {
     return (
       <div className='storybook-with-source'>
-        {this.props.title ? (
-          <h2>{this.props.title}</h2>
-        ) : null}
         {this.props.description ? (
-          <h3>{this.props.description}</h3>
+          <ReactMarkdown className='description' source={this.props.description} />
         ) : null}
-        <div className='example'>
+        <div className='story'>
           {this.props.children}
         </div>
         {this.props.source ? (
@@ -37,12 +34,6 @@ class WithSource extends React.Component {
             <pre dangerouslySetInnerHTML={{__html: this.props.source}} />
           </div>
         ) : null}
-        {this.props.sources ? _.map(this.props.sources, (source, name) => (
-          <div key={name} className='source'>
-            <h4>{name}</h4>
-            <pre dangerouslySetInnerHTML={{__html: this.props.source}} />
-          </div>
-        )) : null}
       </div>
     )
   }

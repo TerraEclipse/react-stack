@@ -1,3 +1,9 @@
+/**
+ * Mapbox - Events
+ *
+ * ## Map Events
+ * Toggle any of the possible map events to start logging them.
+ */
 import React from 'react'
 import _ from 'lodash'
 import {action} from '@kadira/storybook'

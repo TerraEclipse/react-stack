@@ -1,14 +1,13 @@
-import {configure, setAddon, storiesOf, action} from '@kadira/storybook'
+import {configure, setAddon} from '@kadira/storybook'
 import infoAddon from '@kadira/react-storybook-addon-info'
+import loadStories from './util/loadStories'
+import loadSourceStories from './util/loadSourceStories'
 
 // Setup addons.
 setAddon(infoAddon)
 
-// Create webpack require context for stories for all modules, and load them.
-const req = require.context('../../modules', true, /\.story\.js$/)
-function loadStories () {
-  req.keys().forEach((filepath) => {
-    req(filepath).default({storiesOf, action})
-  })
-}
-configure(loadStories, module)
+// Configure storybook.
+configure(() => {
+  loadStories()
+  loadSourceStories()
+}, module)

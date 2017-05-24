@@ -1,3 +1,10 @@
+/**
+ * Mapbox - Images
+ *
+ * ## Load and Use Custom Images
+ * Loads images into the map sprite (limited size), then use them in
+ * layer paint options. Assumes a webpack setup with `url-loader` for images.
+ */
 import React from 'react'
 import {MapGL, LoadImages, Layer} from '../'
 import {defaults} from './_utils'

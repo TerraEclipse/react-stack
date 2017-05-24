@@ -1,3 +1,9 @@
+/**
+ * Mapbox - Basic
+ *
+ * ## Basic Map with Features
+ * Render a map with geojson features.
+ */
 import React from 'react'
 import {MapGL, Layer} from '../'
 import {defaults} from './_utils'

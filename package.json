@@ -1,6 +1,9 @@
 {
   "name": "react-stack",
   "private": true,
+  "standard": {
+    "parser": "babel-eslint"
+  },
   "scripts": {
     "install": "yarn run bootstrap",
     "lerna": "lerna",
@@ -39,6 +42,7 @@
     "react": "^15.5.4",
     "react-display-name": "^0.2.0",
     "react-dom": "^15.5.4",
+    "react-markdown": "^2.5.0",
     "react-test-renderer": "^15.5.4",
     "regenerator-runtime": "^0.10.5",
     "rimraf": "^2.6.1",

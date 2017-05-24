@@ -1,3 +1,10 @@
+/**
+ * Mapbox - Interactive Polygons
+ *
+ * ## Interactive Map with Polygons
+ * Uses the InteractiveLayer 'meta component' to add polygons
+ * with border, hover, and active states.
+ */
 import React from 'react'
 import bbox from '@turf/bbox'
 import {MapGL, InteractiveLayer} from '../'

@@ -90,7 +90,7 @@ body.has-storybook-with-source * {
 }
 
 /* Special-case styles */
-.storybook-with-source .story button {
+.storybook-with-source .story .btn {
   padding: 5px 10px;
   font-size: 1em;
   background: #555;
@@ -100,7 +100,7 @@ body.has-storybook-with-source * {
   color: #fff;
   cursor: pointer;
 }
-.storybook-with-source .story button:hover {
+.storybook-with-source .story .btn:hover {
   background: #666;
 }
 .storybook-with-source .react-mapbox--container {

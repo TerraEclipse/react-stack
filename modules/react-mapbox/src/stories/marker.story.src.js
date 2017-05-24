@@ -94,13 +94,13 @@ class Story extends React.Component {
         })}
         <Overlay>
           <span>Icons:</span>
-          <button onClick={() => {
+          <button className='btn' onClick={() => {
             this.setState((s) => {
               s.size = s.size * 1.33333
               return s
             })
           }}>Bigger</button>
-          <button onClick={() => {
+          <button className='btn' onClick={() => {
             this.setState({size: 1})
           }}>Reset</button>
         </Overlay>

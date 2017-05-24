@@ -28,7 +28,7 @@ class Story extends React.Component {
         <p>
           Clicked <strong>{this.state.count}</strong> time(s)
         </p>
-        <button onClick={this.handleClick}>Click Me</button>
+        <button className='btn' onClick={this.handleClick}>Click Me</button>
       </div>
     )
   }

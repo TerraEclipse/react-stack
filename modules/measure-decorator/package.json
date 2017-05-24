@@ -1,6 +1,6 @@
 {
   "name": "@terraeclipse/measure-decorator",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "publishConfig": {
     "access": "public"
   },
@@ -22,7 +22,7 @@
     "coverage": "../../tools/test-module --coverage"
   },
   "dependencies": {
-    "@terraeclipse/throttle-decorator": "^1.0.3"
+    "@terraeclipse/throttle-decorator": "^1.0.4"
   },
   "peerDependencies": {
     "lodash": "^4.17.4",

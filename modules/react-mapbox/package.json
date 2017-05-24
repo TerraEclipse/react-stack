@@ -1,6 +1,6 @@
 {
   "name": "@terraeclipse/react-mapbox",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "publishConfig": {
     "access": "public"
   },
@@ -22,7 +22,7 @@
     "coverage": "../../tools/test-module --coverage"
   },
   "dependencies": {
-    "@terraeclipse/throttle-raf-decorator": "^1.0.3",
+    "@terraeclipse/throttle-raf-decorator": "^1.0.4",
     "@turf/bbox": "^4.3.0"
   },
   "peerDependencies": {

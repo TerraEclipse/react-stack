@@ -1,52 +1,16 @@
 import React from 'react'
-import _ from 'lodash'
-import {MapGL} from '../'
-import Overlay from './components/Overlay'
-import Checkbox from './components/Checkbox'
-import {defaults} from './_utils'
+import WithSource from './components/WithSource'
+import Story from './interactionHandlers.story.source'
+import source from '!!raw-loader!./interactionHandlers.story.source' // eslint-disable-line
 
 export default function ({storiesOf, action}) {
-  storiesOf('Mapbox', module).addWithInfo('Interaction Handlers',
-    `
-      Toggle interaction handlers on a map.
-    `,
-    () => {
-      class Story extends React.Component {
-        state = {
-          scrollZoom: true,
-          boxZoom: true,
-          dragRotate: true,
-          dragPan: true,
-          keyboard: true,
-          doubleClickZoom: true,
-          touchZoomRotate: true
-        }
-        render () {
-          return (
-            <div>
-              <MapGL
-                {...defaults}
-                {...this.state}
-              />
-              <Overlay>
-                {_.map(this.state, (checked, name) => (
-                  <Checkbox
-                    key={name}
-                    name={name}
-                    onChange={(e) => {
-                      action(name)(e.currentTarget.checked ? 'Enabled' : 'Disabled')
-                      this.setState({[name]: e.currentTarget.checked})
-                    }}
-                    checked={checked}
-                  />
-                ))}
-              </Overlay>
-            </div>
-          )
-        }
-      }
-
-      return <Story />
-    }
-  )
+  storiesOf('Mapbox', module).add('Interaction Handlers', () => (
+    <WithSource
+      title='Turn Map Interaction Handlers On/Off'
+      description='Toggle any of the map interaction handlers.'
+      source={source}
+    >
+      <Story />
+    </WithSource>
+  ))
 }

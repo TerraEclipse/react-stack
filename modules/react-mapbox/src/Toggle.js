@@ -13,6 +13,7 @@ class Toggle extends React.Component {
     avoidDoubleClick: PropTypes.bool,
     doubleClickSpeed: PropTypes.number,
     closeOnClickOutside: PropTypes.bool,
+    onToggle: PropTypes.func,
     children: PropTypes.func
   }
 
@@ -78,19 +79,26 @@ class Toggle extends React.Component {
   toggleFeature (feature) {
     let {features} = this.state
     let property = this.getProperty(feature)
+    let on = true
 
     if (this.props.multiple) {
       if (this.state.features[property]) {
+        on = false
         delete features[property]
       } else {
         features[property] = feature
       }
     } else {
       if (features[property]) {
+        on = false
         features = {}
       } else {
         features = {[property]: feature}
       }
+    }
+
+    if (this.props.onToggle) {
+      this.props.onToggle(feature, on)
     }
 
     this.setState({features})

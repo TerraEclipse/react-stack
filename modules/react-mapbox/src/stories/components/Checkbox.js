@@ -5,7 +5,9 @@ export default function Checkbox (props) {
     <label key={props.name} style={{
       display: 'block',
       padding: 5,
-      color: props.checked ? 'lime' : 'white'
+      color: props.checked ? 'lime' : 'white',
+      whiteSpace: 'nowrap',
+      cursor: 'pointer'
     }}>
       <input
         type='checkbox'

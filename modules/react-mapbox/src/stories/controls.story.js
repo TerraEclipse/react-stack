@@ -1,19 +1,16 @@
 import React from 'react'
-import {MapGL, Control} from '../'
-import {defaults} from './_utils'
+import WithSource from './components/WithSource'
+import Story from './controls.story.source'
+import source from '!!raw-loader!./controls.story.source' // eslint-disable-line
 
 export default function ({storiesOf, action}) {
-  storiesOf('Mapbox', module).addWithInfo('Controls',
-    `
-      Basic map with a geojson layer.
-    `,
-    () => (
-      <MapGL {...defaults}>
-        <Control type='Navigation' position='top-left' />
-        <Control type='Geolocate' position='top-left' watchPosition />
-        <Control type='Scale' position='bottom-right' maxWidth={300} unit='imperial' />
-        <Control type='Fullscreen' position='top-left' />
-      </MapGL>
-    )
-  )
+  storiesOf('Mapbox', module).add('Controls', () => (
+    <WithSource
+      title='Map With Controls'
+      description='An example map with all of the possible mapbox-gl-js controls added.'
+      source={source}
+    >
+      <Story />
+    </WithSource>
+  ))
 }

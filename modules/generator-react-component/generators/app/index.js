@@ -90,7 +90,7 @@ module.exports = class extends Generator {
       ['_README.md', 'README.md'],
       ['src/index.js', 'src/index.js'],
       ['src/_Component.js', 'src/' + this.props.componentName + '.js'],
-      ['src/_Component._story.js', 'src/' + this.props.componentName + '.story.js'],
+      ['src/_Component._story.src.js', 'src/' + this.props.componentName + '.story.src.js'],
       ['src/_Component._test.js', 'src/' + this.props.componentName + '.test.js']
     ]
     _.each(template, ([src, dest]) => {

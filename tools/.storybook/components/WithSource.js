@@ -26,12 +26,18 @@ class WithSource extends React.Component {
         {this.props.description ? (
           <ReactMarkdown className='description' source={this.props.description} />
         ) : null}
-        <div className='story'>
-          {this.props.children}
+        <div className='labeled'>
+          <div className='label'>Example</div>
+          <div className='story'>
+            {this.props.children}
+          </div>
         </div>
         {this.props.source ? (
-          <div className='source'>
-            <pre dangerouslySetInnerHTML={{__html: this.props.source}} />
+          <div className='labeled'>
+            <div className='label'>Source</div>
+            <div className='source'>
+              <pre dangerouslySetInnerHTML={{__html: this.props.source}} />
+            </div>
           </div>
         ) : null}
       </div>

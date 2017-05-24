@@ -1,3 +1,8 @@
+/**
+ * Decorators - throttle-raf-decorator
+ *
+ * ## Throttle a class method using Request Animation Frame.
+ */
 import React from 'react'
 import throttleRAF from './'
 
@@ -49,8 +54,4 @@ class Story extends React.Component {
   }
 }
 
-export default function ({storiesOf, action}) {
-  storiesOf('Decorators', module).add('throttle-raf-decorator', () => (
-    <Story />
-  ))
-}
+export default Story

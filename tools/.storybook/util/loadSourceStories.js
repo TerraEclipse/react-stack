@@ -18,6 +18,12 @@ export default function loadSourceStories () {
     let source = reqSourcePrism(filepath)
     let meta = parseComment(raw)
 
+    // Remove the docblock from the source because its redundant with the
+    // rendered markdown description.
+    source = source.replace(/^<span class="token comment"[^>]+>[^<]*<\/span>/, '')
+    source = source.trim()
+
+    // Add the story.
     storiesOf(meta.category).add(meta.label, () => (
       <WithSource
         description={meta.description}

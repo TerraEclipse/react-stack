@@ -14,7 +14,7 @@ export default function parseMeta (src) {
     }
 
     // Parse category and label (and remove it).
-    var [category, label] = lines[0].split('-').map((part) => part.trim())
+    var [category, label] = lines[0].split(/\s-\s/).map((part) => part.trim())
     lines.shift()
     if (!category || !label) {
       throw new Error('Could not parse category or label from docblock')

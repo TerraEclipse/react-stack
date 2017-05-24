@@ -1,0 +1,11 @@
+.story table {
+  width: 100%;
+}
+.story table tr td {
+  padding: 20px;
+  border-bottom: 1px solid #aaa;
+  text-align: center;
+}
+.story .icon {
+  font-size: 30px;
+}

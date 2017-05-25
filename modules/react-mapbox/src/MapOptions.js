@@ -10,7 +10,7 @@ class MapOptions extends React.Component {
       PropTypes.object
     ]).isRequired,
     center: PropTypes.arrayOf(PropTypes.number),
-    zoom: PropTypes.array,
+    zoom: PropTypes.number,
     minZoom: PropTypes.number,
     maxZoom: PropTypes.number,
     maxBounds: PropTypes.array,
@@ -49,7 +49,7 @@ class MapOptions extends React.Component {
       -0.2416815,
       51.5285582
     ],
-    zoom: [11],
+    zoom: 11,
     minZoom: 0,
     maxZoom: 20,
     bearing: 0,

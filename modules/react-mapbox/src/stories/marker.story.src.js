@@ -70,7 +70,7 @@ class Story extends React.Component {
         {...defaults}
         bbox={null}
         center={[-65.017, -16.457]}
-        zoom={[5]}
+        zoom={5}
       >
         {geojson.features.map((feature, i) => {
           let [x, y] = feature.properties.iconSize

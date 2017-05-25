@@ -71,7 +71,7 @@ class Story extends React.Component {
         {...defaults}
         bbox={null}
         center={[-77.04, 38.907]}
-        zoom={[11.15]}
+        zoom={11.15}
       >
         <Layer
           id='features'

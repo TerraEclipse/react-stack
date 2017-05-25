@@ -21,7 +21,7 @@ class Story extends React.Component {
           flexWrap: 'wrap'
         }}>
           {Object.keys(this.props.features).map((key) => (
-            <li style={{
+            <li key={key} style={{
               listStyle: 'none',
               margin: 5,
               padding: '5px 10px',

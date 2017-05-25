@@ -5,7 +5,7 @@ export const defaults = {
   style: 'mapbox://styles/mapbox/streets-v9',
   bbox: [[-123.881836, 25.063209], [-65.170898, 48.848451]],
   center: [-95.844727, 39.620499],
-  zoom: [3],
+  zoom: 3,
   padding: 30,
   containerStyle: {
     position: 'fixed',

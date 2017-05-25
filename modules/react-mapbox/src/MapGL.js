@@ -7,6 +7,8 @@ import _ from 'lodash'
 import loadMapbox from './util/loadMapbox'
 import MapEvents from './MapEvents'
 import MapOptions from './MapOptions'
+import MapPosition from './MapPosition'
+import MapInteraction from './MapInteraction'
 import Children from './Children'
 
 class MapGL extends React.Component {
@@ -18,6 +20,8 @@ class MapGL extends React.Component {
     onLoad: PropTypes.func,
     onStyleLoad: PropTypes.func
     // MapOptions
+    // MapPosition
+    // MapInteraction
     // MapEvents
   }
 
@@ -83,10 +87,13 @@ class MapGL extends React.Component {
   createMap (mapboxgl) {
     mapboxgl.accessToken = this.props.accessToken
 
-    // Build options from MapOptions.
-    const options = _.extend({
-      container: this.container
-    }, MapOptions.getOptions(this.props))
+    // Build options from sub-components.
+    const options = _.extend(
+      {container: this.container},
+      MapOptions.getOptions(this.props),
+      MapPosition.getOptions(this.props),
+      MapInteraction.getOptions(this.props)
+    )
 
     // Create map.
     const map = new mapboxgl.Map(options)
@@ -133,6 +140,8 @@ class MapGL extends React.Component {
         ) : map ? (
           <Children>
             <MapOptions {...this.props} />
+            <MapPosition {...this.props} />
+            <MapInteraction {...this.props} />
             <MapEvents {...this.props} />
             {this.props.children}
           </Children>

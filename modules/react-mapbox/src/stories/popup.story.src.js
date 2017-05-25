@@ -85,8 +85,8 @@ class Story extends React.Component {
             'icon-allow-overlap': true
           }}
         />
-        <Hover layer='features' />
-        <Toggle layer='features'>
+        <Hover layer='features' property='id' />
+        <Toggle layer='features' property='id'>
           {({features: [feature]}) => (feature ? (
             <Popup
               coordinates={feature.geometry.coordinates}

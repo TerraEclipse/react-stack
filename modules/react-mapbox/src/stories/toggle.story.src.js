@@ -46,7 +46,7 @@ class Story extends React.Component {
           multiple={this.state.multiple}
           closeOnClickOutside={false}
         >
-          {({features}) => (
+          {({properties: names}) => (
             <Layer
               id='states-toggled'
               source='states'
@@ -59,7 +59,7 @@ class Story extends React.Component {
                 'in',
                 'name',
                 '',
-                ...features.map((feature) => feature.properties.name)
+                ...names
               ]}
             />
           )}

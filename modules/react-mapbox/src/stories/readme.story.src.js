@@ -51,7 +51,7 @@ const Story = () => {
           features.
       */}
       <Hover layer='states-fill' property='name'>
-        {({features}) => (
+        {({properties: names}) => (
           <Layer
             id='states-hover'
             source='states'
@@ -63,7 +63,7 @@ const Story = () => {
             filter={[
               '==',
               'name',
-              features[0] ? features[0].properties.name : ''
+              names[0] || ''
             ]}
           />
         )}

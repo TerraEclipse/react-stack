@@ -7,23 +7,41 @@
  */
 import React from 'react'
 import bbox from '@turf/bbox'
-import {MapGL, InteractiveLayer} from '../'
+import {MapGL, Hover, Toggle, InteractiveLayer} from '../'
 import {defaults} from './_utils'
 
 class Story extends React.Component {
   state = {
-    activeFeature: null,
-    hoveredFeature: null,
+    activeName: null,
     bbox: defaults.bbox
   }
+
+  constructor () {
+    super()
+    this.handleToggle = this.handleToggle.bind(this)
+  }
+
+  handleToggle (feature, isOn) {
+    if (isOn) {
+      this.setState({
+        activeName: feature.properties.name,
+        bbox: bbox(feature)
+      })
+    } else {
+      this.setState({
+        activeName: null,
+        bbox: defaults.bbox
+      })
+    }
+  }
+
   render () {
-    let {activeFeature} = this.state
     return (
       <MapGL {...defaults} bbox={this.state.bbox}>
         <InteractiveLayer
           id='states'
           property='name'
-          activeProperty={activeFeature && activeFeature.properties.name}
+          activeProperty={this.state.activeName}
           source={{
             id: 'states',
             type: 'geojson',
@@ -71,44 +89,30 @@ class Story extends React.Component {
               'line-width': 2
             }
           }}
-          avoidDoubleClick
-          onClick={(e, [feature]) => {
-            let {activeFeature} = this.state
-            if (activeFeature &&
-               (activeFeature.properties.name === feature.properties.name)) {
-              this.setState({
-                activeFeature: null,
-                bbox: defaults.bbox
-              })
-            } else {
-              this.setState({
-                activeFeature: feature,
-                bbox: bbox(feature)
-              })
-            }
-          }}
-          onHoverOver={(e, feature) => {
-            this.setState({hoveredFeature: feature})
-          }}
-          onHoverOut={(e, feature) => {
-            this.setState({hoveredFeature: null})
-          }}
         />
-        {this.state.hoveredFeature ? (
-          <h2 style={{
-            position: 'absolute',
-            top: 10,
-            left: 10,
-            margin: 0,
-            padding: 10,
-            backgroundColor: '#333',
-            color: '#ddd',
-            boxShadow: '1px 1px 5px rgba(0, 0, 0, 0.3)',
-            zIndex: 10
-          }}>
-            {this.state.hoveredFeature.properties.name}
-          </h2>
-        ) : null}
+        <Hover layer='states' property='name'>
+          {({properties: names}) => names[0] ? (
+            <h2 style={{
+              position: 'absolute',
+              top: 10,
+              left: 10,
+              margin: 0,
+              padding: 10,
+              backgroundColor: '#333',
+              color: '#ddd',
+              boxShadow: '1px 1px 5px rgba(0, 0, 0, 0.3)',
+              zIndex: 10
+            }}>
+              {names[0]}
+            </h2>
+          ) : null}
+        </Hover>
+        <Toggle
+          layer='states'
+          property='name'
+          onToggle={this.handleToggle}
+          avoidDoubleClick
+        />
       </MapGL>
     )
   }

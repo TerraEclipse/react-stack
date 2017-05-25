@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
-import {Children, Hover, Click, Layer, Source} from './'
+import {Children, Hover, Layer, Source} from './'
 
 class InteractiveLayer extends React.Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
-    property: PropTypes.string,
+    property: PropTypes.string.isRequired,
     source: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.object
@@ -22,26 +22,14 @@ class InteractiveLayer extends React.Component {
       PropTypes.string,
       PropTypes.number,
       PropTypes.bool
-    ]),
-    clickEvent: PropTypes.string,
-    avoidDoubleClick: PropTypes.bool,
-    doubleClickSpeed: PropTypes.number,
-    onClick: PropTypes.func,
-    onHoverOver: PropTypes.func,
-    onHoverOut: PropTypes.func
-  }
-
-  static defaultProps = {
-    property: 'id'
+    ])
   }
 
   render () {
     let {
       id, source, sourceLayer, property,
       base, borders, hover, hoverBorder,
-      active, activeBorder, activeProperty,
-      clickEvent, avoidDoubleClick, doubleClickSpeed,
-      onClick, onHoverOver, onHoverOut
+      active, activeBorder, activeProperty
     } = this.props
 
     let sourceId = typeof source === 'string' ? source : source.id
@@ -73,27 +61,9 @@ class InteractiveLayer extends React.Component {
           />
         ) : null}
 
-        {onClick ? (
-          <Click
-            layer={id}
-            event={clickEvent}
-            avoidDoubleClick={avoidDoubleClick}
-            doubleClickSpeed={doubleClickSpeed}
-            onClick={onClick}
-          />
-        ) : null}
-
-        {(hover || hoverBorder || onHoverOver || onHoverOut) ? (
-          <Hover
-            layer={id}
-            property={property}
-            onHoverOver={onHoverOver}
-            onHoverOut={onHoverOut}
-          >
-            {({features}) => {
-              let hoveredProperty = features.length
-                ? _.get(features[0].properties, property)
-                : ''
+        {(hover || hoverBorder) ? (
+          <Hover layer={id} property={property}>
+            {({properties}) => {
               return (
                 <Children>
                   {hover ? (
@@ -104,8 +74,8 @@ class InteractiveLayer extends React.Component {
                         sourceLayer: sourceLayer
                       })}
                       filter={base.filter
-                        ? ['all', ['==', property, hoveredProperty], base.filter]
-                        : ['==', property, hoveredProperty]
+                        ? ['all', ['==', property, properties[0] || ''], base.filter]
+                        : ['==', property, properties[0] || '']
                       }
                     />
                   ) : null}
@@ -118,8 +88,8 @@ class InteractiveLayer extends React.Component {
                         sourceLayer: sourceLayer
                       })}
                       filter={base.filter
-                        ? ['all', ['==', property, hoveredProperty], base.filter]
-                        : ['==', property, hoveredProperty]
+                        ? ['all', ['==', property, properties[0] || ''], base.filter]
+                        : ['==', property, properties[0] || '']
                       }
                     />
                   ) : null}

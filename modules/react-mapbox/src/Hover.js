@@ -8,7 +8,7 @@ import LayerEvent from './LayerEvent'
 class Hover extends React.Component {
   static propTypes = {
     layer: PropTypes.string.isRequired,
-    property: PropTypes.string,
+    property: PropTypes.string.isRequired,
     cursor: PropTypes.string,
     onHoverOver: PropTypes.func,
     onHoverOut: PropTypes.func,
@@ -16,7 +16,6 @@ class Hover extends React.Component {
   }
 
   static defaultProps = {
-    property: 'id',
     cursor: 'pointer'
   }
 
@@ -46,12 +45,13 @@ class Hover extends React.Component {
           this.props.onHoverOver(e, _.find(e.features, [propertyPath, property]))
         })
       }
-      if (this.props.children) {
-        this.setState({properties: properties, features: e.features})
-      }
       if (this.props.cursor) {
         this.context.map.getCanvas().style.cursor = this.props.cursor
       }
+      this.setState({
+        properties: properties,
+        features: e.features
+      })
     }
   }
 
@@ -62,12 +62,13 @@ class Hover extends React.Component {
         this.props.onHoverOut(e, feature)
       })
     }
-    if (this.props.children) {
-      this.setState({properties: [], features: []})
-    }
     if (this.props.cursor) {
       this.context.map.getCanvas().style.cursor = ''
     }
+    this.setState({
+      properties: [],
+      features: []
+    })
   }
 
   render () {
@@ -85,7 +86,7 @@ class Hover extends React.Component {
         />
         {this.props.children
           ? (typeof this.props.children === 'function')
-            ? this.props.children({features: this.state.features})
+            ? this.props.children(this.state)
             : this.props.children
           : null
         }

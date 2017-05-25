@@ -7,7 +7,7 @@ import Click from './Click'
 class Toggle extends React.Component {
   static propTypes = {
     layer: PropTypes.string.isRequired,
-    property: PropTypes.string,
+    property: PropTypes.string.isRequired,
     multiple: PropTypes.bool,
     clickEvent: PropTypes.string,
     avoidDoubleClick: PropTypes.bool,
@@ -18,7 +18,6 @@ class Toggle extends React.Component {
   }
 
   static defaultProps = {
-    property: 'id',
     multiple: false,
     closeOnClickOutside: true
   }
@@ -79,18 +78,18 @@ class Toggle extends React.Component {
   toggleFeature (feature) {
     let {features} = this.state
     let property = this.getProperty(feature)
-    let on = true
+    let isOn = true
 
     if (this.props.multiple) {
       if (this.state.features[property]) {
-        on = false
+        isOn = false
         delete features[property]
       } else {
         features[property] = feature
       }
     } else {
       if (features[property]) {
-        on = false
+        isOn = false
         features = {}
       } else {
         features = {[property]: feature}
@@ -98,7 +97,7 @@ class Toggle extends React.Component {
     }
 
     if (this.props.onToggle) {
-      this.props.onToggle(feature, on)
+      this.props.onToggle(feature, isOn)
     }
 
     this.setState({features})
@@ -135,7 +134,10 @@ class Toggle extends React.Component {
         )}
         {this.props.children
           ? (typeof this.props.children === 'function')
-            ? this.props.children({features: _.values(this.state.features)})
+            ? this.props.children({
+              features: _.values(this.state.features),
+              properties: _.keys(this.state.features)
+            })
             : this.props.children
           : null
         }

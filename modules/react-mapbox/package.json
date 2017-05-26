@@ -1,0 +1,26 @@
+{
+  "name": "@terraeclipse/react-mapbox",
+  "version": "1.2.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "MapboxGL",
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "files": [],
+  "scripts": {},
+  "author": "Brian Link",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TerraEclipse/react-stack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TerraEclipse/react-stack/issues"
+  },
+  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/modules/react-mapbox#readme",
+  "keywords": [
+    "react-component"
+  ]
+}

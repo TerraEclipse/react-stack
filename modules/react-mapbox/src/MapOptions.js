@@ -8,17 +8,20 @@ class MapOptions extends React.Component {
       PropTypes.string,
       PropTypes.object
     ]).isRequired,
-    attributionControl: PropTypes.object,
     hash: PropTypes.bool,
-    preserveDrawingBuffer: PropTypes.bool
-  }
+    bearingSnap: PropTypes.number,
+    attributionControl: PropTypes.bool,
+    logoPosition: PropTypes.string,
+    preserveDrawingBuffer: PropTypes.bool,
+    refreshExpiredTiles: PropTypes.bool,
+    trackResize: PropTypes.bool,
+    renderWorldCopies: PropTypes.bool,
 
-  static defaultProps = {
-    attributionControl: {
-      position: 'bottom-right'
-    },
-    hash: false,
-    preserveDrawingBuffer: false
+    // Not options, set with a method.
+    showTileBoundaries: PropTypes.bool,
+    showCollisionBoxes: PropTypes.bool,
+    repaint: PropTypes.bool,
+    rtlTextPlugin: PropTypes.string
   }
 
   static contextTypes = {
@@ -27,13 +30,30 @@ class MapOptions extends React.Component {
 
   // Called when the map is initally created.
   static getOptions (props) {
-    return _.pick(props, _.keys(MapOptions.propTypes))
+    return _.omit(_.pick(props, _.keys(MapOptions.propTypes)), [
+      'showTileBoundaries',
+      'showCollisionBoxes',
+      'repaint',
+      'rtlTextPlugin'
+    ])
   }
 
   componentWillReceiveProps (nextProps) {
     const {map} = this.context
     if (!_.isEqual(this.props.style, nextProps.style)) {
       map.setStyle(nextProps.style)
+    }
+    if (this.props.showTileBoundaries !== nextProps.showTileBoundaries) {
+      map.showTileBoundaries(nextProps.showTileBoundaries)
+    }
+    if (this.props.showCollisionBoxes !== nextProps.showCollisionBoxes) {
+      map.showCollisionBoxes(nextProps.showCollisionBoxes)
+    }
+    if (this.props.repaint !== nextProps.repaint) {
+      map.repaint(nextProps.repaint)
+    }
+    if (this.props.rtlTextPlugin !== nextProps.rtlTextPlugin) {
+      map.setRTLTextPlugin(nextProps.rtlTextPlugin)
     }
   }
 

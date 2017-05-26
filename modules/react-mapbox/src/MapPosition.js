@@ -18,12 +18,18 @@ class MapPosition extends React.Component {
       PropTypes.array,
       PropTypes.object
     ]),
-    padding: PropTypes.number,
-    movingMethod: PropTypes.oneOf([
+    padding: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.object
+    ]),
+    moveMethod: PropTypes.oneOf([
       'jumpTo',
       'easeTo',
       'flyTo'
-    ])
+    ]),
+    moveAround: PropTypes.array,
+    moveAnimationOptions: PropTypes.object,
+    moveFlyToOptions: PropTypes.object
   }
 
   static defaultProps = {
@@ -40,7 +46,8 @@ class MapPosition extends React.Component {
 
     // Default custom options.
     moveMethod: 'flyTo',
-    moveAround: null
+    moveAnimationOptions: {},
+    moveFlyToOptions: {}
   }
 
   static contextTypes = {
@@ -49,15 +56,16 @@ class MapPosition extends React.Component {
 
   // Called when the map is initally created.
   static getOptions (props) {
-    return _.omit(
-      _.pick(props, _.keys(MapPosition.propTypes)),
-      [
-        'bbox',
-        'padding',
-        'moveMethod',
-        'moveAround'
-      ]
-    )
+    let pickFrom = _.defaults({}, props, MapPosition.defaultProps)
+    let picked = _.pick(pickFrom, _.keys(MapPosition.propTypes))
+    return _.omit(picked, [
+      'bbox',
+      'padding',
+      'moveMethod',
+      'moveAround',
+      'moveAnimationOptions',
+      'moveFlyToOptions'
+    ])
   }
 
   componentDidMount () {
@@ -98,13 +106,22 @@ class MapPosition extends React.Component {
     )
 
     if (didZoomUpdate || didCenterUpdate || didBearingUpdate || didPitchUpdate) {
-      map[nextProps.movingMethod]({
+      let cameraOptions = {
         center: didCenterUpdate ? nextProps.center : center,
         zoom: didZoomUpdate ? nextProps.zoom : zoom,
         bearing: didBearingUpdate ? nextProps.bearing : bearing,
         pitch: didPitchUpdate ? nextProps.pitch : pitch,
         around: nextProps.moveAround
-      })
+      }
+      map[nextProps.moveMethod](_.extend(
+        cameraOptions,
+        nextProps.moveMethod !== 'jumpTo'
+          ? nextProps.moveAnimationOptions
+          : null,
+        nextProps.moveMethod === 'flyTo'
+          ? nextProps.moveFlyToOptions
+          : null
+      ))
     }
 
     if (!_.isEqual(this.props.bbox, nextProps.bbox)) {

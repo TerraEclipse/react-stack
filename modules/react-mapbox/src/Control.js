@@ -8,6 +8,7 @@ class Control extends React.Component {
       PropTypes.oneOf([
         'Navigation',
         'Geolocate',
+        'Attribution',
         'Scale',
         'Fullscreen'
       ]),

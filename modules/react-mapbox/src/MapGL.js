@@ -84,6 +84,13 @@ class MapGL extends React.Component {
     )
   }
 
+  componentWillReceiveProps (nextProps) {
+    let {map} = this.state
+    if (map && !_.isEqual(this.props.containerStyle, nextProps.containerStyle)) {
+      map.resize()
+    }
+  }
+
   createMap (mapboxgl) {
     mapboxgl.accessToken = this.props.accessToken
 

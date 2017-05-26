@@ -31,7 +31,10 @@ class MapInteraction extends React.Component {
 
   // Called when the map is initally created.
   static getOptions (props) {
-    return _.pick(props, _.keys(MapInteraction.propTypes))
+    return _.pick(
+      _.defaults({}, props, MapInteraction.defaultProps),
+      _.keys(MapInteraction.propTypes)
+    )
   }
 
   componentWillReceiveProps (nextProps) {

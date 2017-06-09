@@ -26,11 +26,6 @@ if (typeof window !== 'undefined') {
       return false
     }
   })(document.createElement('canvas'))
-
-  // If mapboxgl is on the page, add their check too.
-  window.feature.mapboxgl = window.mapboxgl
-    ? window.mapboxgl.supported({failIfMajorPerformanceCaveat: true})
-    : false
 }
 
 /**
@@ -75,6 +70,11 @@ export default function features (Component) {
     }
 
     componentDidMount () {
+      // If mapboxgl is on the page, add their check too.
+      window.feature.mapboxgl = window.mapboxgl
+        ? window.mapboxgl.supported({failIfMajorPerformanceCaveat: true})
+        : false
+
       this.setState({features: window.feature})
     }
 

@@ -2,3 +2,6 @@
 # yarn lockfile v1
 
 
+"@terraeclipse/throttle-decorator@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.npmjs.org/@terraeclipse/throttle-decorator/-/throttle-decorator-1.0.5.tgz#9b342c9d86c4ffbd3d7dc21e538a85ab6f47722f"

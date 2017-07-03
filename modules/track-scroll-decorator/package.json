@@ -1,0 +1,46 @@
+{
+  "name": "@terraeclipse/track-scroll-decorator",
+  "version": "1.0.0",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "TrackScroll",
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "es",
+    "lib"
+  ],
+  "scripts": {
+    "prepublish": "yarn run build",
+    "build": "../../tools/build-module",
+    "clean": "../../tools/clean-module",
+    "test": "../../tools/test-module",
+    "coverage": "../../tools/test-module --coverage"
+  },
+  "dependencies": {
+    "@terraeclipse/throttle-raf-decorator": "^1.0.4"
+  },
+  "peerDependencies": {
+    "prop-types": "15.x",
+    "react": "^15.5.4",
+    "react-display-name": "^0.2.0"
+  },
+  "devDependencies": {},
+  "author": "Brian Link",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TerraEclipse/react-stack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TerraEclipse/react-stack/issues"
+  },
+  "homepage": "https://github.com/TerraEclipse/react-stack/tree/master/modules/track-scroll-decorator#readme",
+  "keywords": [
+    "react-component"
+  ]
+}

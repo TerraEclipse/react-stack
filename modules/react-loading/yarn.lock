@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@terraeclipse/react-icon@^2.0.4":
-  version "2.0.4"
-  resolved "https://registry.npmjs.org/@terraeclipse/react-icon/-/react-icon-2.0.4.tgz#ecc66803cbb8a4186cac28138a71baea86130dc7"
+"@terraeclipse/react-icon@^2.0.5":
+  version "2.0.5"
+  resolved "https://registry.npmjs.org/@terraeclipse/react-icon/-/react-icon-2.0.5.tgz#1d8bf5404504b3ea5ec21734ea81a06ca91c1f55"
   dependencies:
     font-awesome "^4.7.0"
 

@@ -1,7 +1,7 @@
 /**
  * Decorators - track-hovering-decorator
  *
- * ## Track whether the user is hovering the decorator component.
+ * ## Track whether the user is hovering the decorated component.
  *
  * Adds an `isHovering` boolean prop to the component.
  */

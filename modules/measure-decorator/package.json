@@ -1,6 +1,6 @@
 {
   "name": "@terraeclipse/measure-decorator",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "publishConfig": {
     "access": "public"
   },
@@ -30,7 +30,6 @@
     "react": "^15.5.4",
     "react-display-name": "^0.2.0"
   },
-  "devDependencies": {},
   "author": "Brian Link",
   "license": "Apache-2.0",
   "repository": {

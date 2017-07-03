@@ -1,6 +1,6 @@
 {
   "name": "@terraeclipse/track-scroll-decorator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publishConfig": {
     "access": "public"
   },
@@ -29,7 +29,6 @@
     "react": "^15.5.4",
     "react-display-name": "^0.2.0"
   },
-  "devDependencies": {},
   "author": "Brian Link",
   "license": "Apache-2.0",
   "repository": {

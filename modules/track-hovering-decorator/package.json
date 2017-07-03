@@ -1,6 +1,6 @@
 {
   "name": "@terraeclipse/track-hovering-decorator",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publishConfig": {
     "access": "public"
   },
@@ -21,13 +21,11 @@
     "test": "../../tools/test-module",
     "coverage": "../../tools/test-module --coverage"
   },
-  "dependencies": {},
   "peerDependencies": {
     "prop-types": "15.x",
     "react": "^15.5.4",
     "react-display-name": "^0.2.0"
   },
-  "devDependencies": {},
   "author": "Brian Link",
   "license": "Apache-2.0",
   "repository": {

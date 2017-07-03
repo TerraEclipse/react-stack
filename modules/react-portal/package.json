@@ -1,6 +1,6 @@
 {
   "name": "@terraeclipse/react-portal",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "publishConfig": {
     "access": "public"
   },
@@ -20,13 +20,11 @@
     "test": "../../tools/test-module",
     "coverage": "../../tools/test-module --coverage"
   },
-  "dependencies": {},
   "peerDependencies": {
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },
-  "devDependencies": {},
   "author": "Brian Link",
   "license": "Apache-2.0",
   "repository": {

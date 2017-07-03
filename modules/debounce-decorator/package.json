@@ -1,6 +1,6 @@
 {
   "name": "@terraeclipse/debounce-decorator",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "publishConfig": {
     "access": "public"
   },
@@ -21,11 +21,9 @@
     "coverage": "../../tools/test-module --coverage",
     "test": "../../tools/test-module"
   },
-  "dependencies": {},
   "peerDependencies": {
     "lodash": "^4.17.4"
   },
-  "devDependencies": {},
   "author": "Brian Link",
   "license": "Apache-2.0",
   "repository": {

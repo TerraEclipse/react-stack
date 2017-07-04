@@ -1,6 +1,6 @@
 {
   "name": "@terraeclipse/ready",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publishConfig": {
     "access": "public"
   },
@@ -21,12 +21,10 @@
     "test": "../../tools/test-module",
     "coverage": "../../tools/test-module --coverage"
   },
-  "dependencies": {},
   "peerDependencies": {
-    "react": "^15.5.4",
-    "prop-types": "15.x"
+    "prop-types": "15.x",
+    "react": "^15.5.4"
   },
-  "devDependencies": {},
   "author": "Brian Link",
   "license": "Apache-2.0",
   "repository": {

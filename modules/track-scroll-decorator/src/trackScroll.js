@@ -6,15 +6,7 @@ export default function trackScroll (Component) {
   class ScrollTracker extends React.Component {
     static displayName = `TrackScroll(${getDisplayName(Component)})`
     static WrappedComponent = Component
-
-    static getScrollPosition () {
-      let scrollElement = document.scrollingElement || document.documentElement
-      return {
-        scroll: typeof document !== 'undefined'
-          ? scrollElement.scrollTop
-          : 0
-      }
-    }
+    static getScrollPosition = getScrollPosition
 
     state = {scroll: 0}
 
@@ -38,4 +30,13 @@ export default function trackScroll (Component) {
   }
 
   return ScrollTracker
+}
+
+export function getScrollPosition () {
+  let scrollElement = document.scrollingElement || document.documentElement
+  return {
+    scroll: typeof document !== 'undefined'
+      ? scrollElement.scrollTop
+      : 0
+  }
 }

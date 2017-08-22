@@ -1,2 +1,3 @@
-import trackScroll from './trackScroll'
+import trackScroll, {getScrollPosition} from './trackScroll'
 export default trackScroll
+export {getScrollPosition}
